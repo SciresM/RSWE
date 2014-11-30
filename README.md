@@ -1,0 +1,1 @@
+Wild Encounter editor for Pokemon Omega Ruby and Alpha Sapphire.

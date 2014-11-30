@@ -17,7 +17,67 @@ namespace RSWE
         public Form1()
         {
             InitializeComponent();
+            spec = new ComboBox[] 
+            {
+                CB_Grass1, CB_Grass2, CB_Grass3, CB_Grass4, CB_Grass5, CB_Grass6, CB_Grass7, CB_Grass8, CB_Grass9, CB_Grass10, CB_Grass11, CB_Grass12,
+                CB_TallGrass1, CB_TallGrass2, CB_TallGrass3, CB_TallGrass4, CB_TallGrass5, CB_TallGrass6, CB_TallGrass7, CB_TallGrass8, CB_TallGrass9, CB_TallGrass10, CB_TallGrass11, CB_TallGrass12,
+                CB_Swarm1, CB_Swarm2, CB_Swarm3, 
+                CB_Surf1, CB_Surf2, CB_Surf3, CB_Surf4, CB_Surf5, 
+                CB_RockSmash1, CB_RockSmash2, CB_RockSmash3, CB_RockSmash4, CB_RockSmash5, 
+                CB_Old1, CB_Old2, CB_Old3, 
+                CB_Good1, CB_Good2, CB_Good3,
+                CB_Super1, CB_Super2, CB_Super3,
+                CB_HordeA1, CB_HordeA2, CB_HordeA3, CB_HordeA4, CB_HordeA5,
+                CB_HordeB1, CB_HordeB2, CB_HordeB3, CB_HordeB4, CB_HordeB5,
+                CB_HordeC1, CB_HordeC2, CB_HordeC3, CB_HordeC4, CB_HordeC5,
+            };
+            min = new NumericUpDown[]
+            {
+                NUP_GrassMin1, NUP_GrassMin2, NUP_GrassMin3, NUP_GrassMin4, NUP_GrassMin5, NUP_GrassMin6, NUP_GrassMin7, NUP_GrassMin8, NUP_GrassMin9, NUP_GrassMin10, NUP_GrassMin11, NUP_GrassMin12,
+                NUP_TallGrassMin1, NUP_TallGrassMin2, NUP_TallGrassMin3, NUP_TallGrassMin4, NUP_TallGrassMin5, NUP_TallGrassMin6, NUP_TallGrassMin7, NUP_TallGrassMin8, NUP_TallGrassMin9, NUP_TallGrassMin10, NUP_TallGrassMin11, NUP_TallGrassMin12,
+                NUP_SwarmMin1, NUP_SwarmMin2, NUP_SwarmMin3, 
+                NUP_SurfMin1, NUP_SurfMin2, NUP_SurfMin3, NUP_SurfMin4, NUP_SurfMin5, 
+                NUP_RockSmashMin1, NUP_RockSmashMin2, NUP_RockSmashMin3, NUP_RockSmashMin4, NUP_RockSmashMin5, 
+                NUP_OldMin1, NUP_OldMin2, NUP_OldMin3, 
+                NUP_GoodMin1, NUP_GoodMin2, NUP_GoodMin3,
+                NUP_SuperMin1, NUP_SuperMin2, NUP_SuperMin3,
+                NUP_HordeAMin1, NUP_HordeAMin2, NUP_HordeAMin3, NUP_HordeAMin4, NUP_HordeAMin5,
+                NUP_HordeBMin1, NUP_HordeBMin2, NUP_HordeBMin3, NUP_HordeBMin4, NUP_HordeBMin5,
+                NUP_HordeCMin1, NUP_HordeCMin2, NUP_HordeCMin3, NUP_HordeCMin4, NUP_HordeCMin5,
+            };
+            max = new NumericUpDown[]
+            {
+                NUP_GrassMax1, NUP_GrassMax2, NUP_GrassMax3, NUP_GrassMax4, NUP_GrassMax5, NUP_GrassMax6, NUP_GrassMax7, NUP_GrassMax8, NUP_GrassMax9, NUP_GrassMax10, NUP_GrassMax11, NUP_GrassMax12,
+                NUP_TallGrassMax1, NUP_TallGrassMax2, NUP_TallGrassMax3, NUP_TallGrassMax4, NUP_TallGrassMax5, NUP_TallGrassMax6, NUP_TallGrassMax7, NUP_TallGrassMax8, NUP_TallGrassMax9, NUP_TallGrassMax10, NUP_TallGrassMax11, NUP_TallGrassMax12,
+                NUP_SwarmMax1, NUP_SwarmMax2, NUP_SwarmMax3, 
+                NUP_SurfMax1, NUP_SurfMax2, NUP_SurfMax3, NUP_SurfMax4, NUP_SurfMax5, 
+                NUP_RockSmashMax1, NUP_RockSmashMax2, NUP_RockSmashMax3, NUP_RockSmashMax4, NUP_RockSmashMax5, 
+                NUP_OldMax1, NUP_OldMax2, NUP_OldMax3, 
+                NUP_GoodMax1, NUP_GoodMax2, NUP_GoodMax3,
+                NUP_SuperMax1, NUP_SuperMax2, NUP_SuperMax3,
+                NUP_HordeAMax1, NUP_HordeAMax2, NUP_HordeAMax3, NUP_HordeAMax4, NUP_HordeAMax5,
+                NUP_HordeBMax1, NUP_HordeBMax2, NUP_HordeBMax3, NUP_HordeBMax4, NUP_HordeBMax5,
+                NUP_HordeCMax1, NUP_HordeCMax2, NUP_HordeCMax3, NUP_HordeCMax4, NUP_HordeCMax5,
+            };
+            form = new NumericUpDown[]
+            {
+                NUP_GrassForme1, NUP_GrassForme2, NUP_GrassForme3, NUP_GrassForme4, NUP_GrassForme5, NUP_GrassForme6, NUP_GrassForme7, NUP_GrassForme8, NUP_GrassForme9, NUP_GrassForme10, NUP_GrassForme11, NUP_GrassForme12,
+                NUP_TallGrassForme1, NUP_TallGrassForme2, NUP_TallGrassForme3, NUP_TallGrassForme4, NUP_TallGrassForme5, NUP_TallGrassForme6, NUP_TallGrassForme7, NUP_TallGrassForme8, NUP_TallGrassForme9, NUP_TallGrassForme10, NUP_TallGrassForme11, NUP_TallGrassForme12,
+                NUP_SwarmForme1, NUP_SwarmForme2, NUP_SwarmForme3, 
+                NUP_SurfForme1, NUP_SurfForme2, NUP_SurfForme3, NUP_SurfForme4, NUP_SurfForme5, 
+                NUP_RockSmashForme1, NUP_RockSmashForme2, NUP_RockSmashForme3, NUP_RockSmashForme4, NUP_RockSmashForme5, 
+                NUP_OldForme1, NUP_OldForme2, NUP_OldForme3, 
+                NUP_GoodForme1, NUP_GoodForme2, NUP_GoodForme3,
+                NUP_SuperForme1, NUP_SuperForme2, NUP_SuperForme3,
+                NUP_HordeAForme1, NUP_HordeAForme2, NUP_HordeAForme3, NUP_HordeAForme4, NUP_HordeAForme5,
+                NUP_HordeBForme1, NUP_HordeBForme2, NUP_HordeBForme3, NUP_HordeBForme4, NUP_HordeBForme5,
+                NUP_HordeCForme1, NUP_HordeCForme2, NUP_HordeCForme3, NUP_HordeCForme4, NUP_HordeCForme5,
+            };
         }
+        private ComboBox[] spec;
+        private NumericUpDown[] min;
+        private NumericUpDown[] max;
+        private NumericUpDown[] form;
         string[] specieslist = { };
         string[] metRS_00000 = { };
         byte[] zonedata = { };
@@ -428,7 +488,7 @@ namespace RSWE
 
             string[] stringdata = new string[rawlist.Count];
             for (int i = 0; i < rawlist.Count; i++)
-                stringdata[i] = rawlist[i];
+                stringdata[i] = rawlist[i].Trim();
 
             return stringdata;
         }
@@ -440,7 +500,7 @@ namespace RSWE
                 return;
             this.encdatapaths = Directory.GetFiles(folderBrowserDialog.SelectedPath, "*.*", SearchOption.TopDirectoryOnly);
             Array.Sort(encdatapaths);
-            this.filepaths = new string[this.encdatapaths.Length-2];
+            this.filepaths = new string[this.encdatapaths.Length - 2];
             Array.Copy(this.encdatapaths, 2, this.filepaths, 0, this.filepaths.Length);
             #region Data Verification
             //Verify that data is legitimate
@@ -468,10 +528,10 @@ namespace RSWE
             for (int f = 0; f < filepaths.Length; f++)
             {
                 string name = Path.GetFileNameWithoutExtension(filepaths[f]);
-                ;
+
                 int LocationNum = Convert.ToInt16(name.Substring(4, name.Length - 4));
                 int indNum = LocationNum * 56 + 0x1C;
-                string LocationName = metRS_00000[zonedata[indNum]+(0x100*(zonedata[indNum+1] & 1))];
+                string LocationName = metRS_00000[zonedata[indNum] + (0x100 * (zonedata[indNum + 1] & 1))];
                 LocationNames[f] = (LocationNum.ToString("000") + " - " + LocationName);
             }
             CB_LocationID.DataSource = LocationNames;
@@ -483,15 +543,10 @@ namespace RSWE
 
         private bool needsInsertion(int mapID)
         {
-            if (mapID != 535) //Hardcoded, bad, I know.
-            {
-                uint datalen = BitConverter.ToUInt32(decStorage, (mapID + 2) * 4) - BitConverter.ToUInt32(decStorage, (mapID + 1) * 4);
-                return datalen == 0;
-            }
+            if (mapID != 535) // Hardcoded, bad, I know.
+                return (BitConverter.ToUInt32(decStorage, (mapID + 2) * 4) - BitConverter.ToUInt32(decStorage, (mapID + 1) * 4) == 0);
             else
-            {
                 return (BitConverter.ToUInt32(decStorage, (mapID + 1) * 4) == decStorage.Length);
-            }
         }
 
         private bool hasData()
@@ -741,17 +796,18 @@ namespace RSWE
             if (NUP_HordeCForme5.Value > 0) { return true; }
             if (NUP_HordeCMin5.Value > 0) { return true; }
             if (NUP_HordeCMax5.Value > 0) { return true; }
-#endregion
+            #endregion
             return false;
         }
 
         private void parse(byte[] ed)
         {
+            // Encounter Slot Counts per Encounter Type
             /* OLD XY// 12,12,12,12,12
             // 5,5
             // 3,3,3
             // 5,5,5,*/
-            
+
             // ORAS
             //12 grass
             //12 tall grass
@@ -767,440 +823,23 @@ namespace RSWE
             byte[] slot = new Byte[4];
             int[] data = new int[4];
             int offset = 0x0;
-            #region ReadData
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass1.SelectedIndex = data[0];
-            NUP_GrassForme1.Value = data[1];
-            NUP_GrassMin1.Value = data[2];
-            NUP_GrassMax1.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass2.SelectedIndex = data[0];
-            NUP_GrassForme2.Value = data[1];
-            NUP_GrassMin2.Value = data[2];
-            NUP_GrassMax2.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass3.SelectedIndex = data[0];
-            NUP_GrassForme3.Value = data[1];
-            NUP_GrassMin3.Value = data[2];
-            NUP_GrassMax3.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass4.SelectedIndex = data[0];
-            NUP_GrassForme4.Value = data[1];
-            NUP_GrassMin4.Value = data[2];
-            NUP_GrassMax4.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass5.SelectedIndex = data[0];
-            NUP_GrassForme5.Value = data[1];
-            NUP_GrassMin5.Value = data[2];
-            NUP_GrassMax5.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass6.SelectedIndex = data[0];
-            NUP_GrassForme6.Value = data[1];
-            NUP_GrassMin6.Value = data[2];
-            NUP_GrassMax6.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass7.SelectedIndex = data[0];
-            NUP_GrassForme7.Value = data[1];
-            NUP_GrassMin7.Value = data[2];
-            NUP_GrassMax7.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass8.SelectedIndex = data[0];
-            NUP_GrassForme8.Value = data[1];
-            NUP_GrassMin8.Value = data[2];
-            NUP_GrassMax8.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass9.SelectedIndex = data[0];
-            NUP_GrassForme9.Value = data[1];
-            NUP_GrassMin9.Value = data[2];
-            NUP_GrassMax9.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass10.SelectedIndex = data[0];
-            NUP_GrassForme10.Value = data[1];
-            NUP_GrassMin10.Value = data[2];
-            NUP_GrassMax10.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass11.SelectedIndex = data[0];
-            NUP_GrassForme11.Value = data[1];
-            NUP_GrassMin11.Value = data[2];
-            NUP_GrassMax11.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Grass12.SelectedIndex = data[0];
-            NUP_GrassForme12.Value = data[1];
-            NUP_GrassMin12.Value = data[2];
-            NUP_GrassMax12.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass1.SelectedIndex = data[0];
-            NUP_TallGrassForme1.Value = data[1];
-            NUP_TallGrassMin1.Value = data[2];
-            NUP_TallGrassMax1.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass2.SelectedIndex = data[0];
-            NUP_TallGrassForme2.Value = data[1];
-            NUP_TallGrassMin2.Value = data[2];
-            NUP_TallGrassMax2.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass3.SelectedIndex = data[0];
-            NUP_TallGrassForme3.Value = data[1];
-            NUP_TallGrassMin3.Value = data[2];
-            NUP_TallGrassMax3.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass4.SelectedIndex = data[0];
-            NUP_TallGrassForme4.Value = data[1];
-            NUP_TallGrassMin4.Value = data[2];
-            NUP_TallGrassMax4.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass5.SelectedIndex = data[0];
-            NUP_TallGrassForme5.Value = data[1];
-            NUP_TallGrassMin5.Value = data[2];
-            NUP_TallGrassMax5.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass6.SelectedIndex = data[0];
-            NUP_TallGrassForme6.Value = data[1];
-            NUP_TallGrassMin6.Value = data[2];
-            NUP_TallGrassMax6.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass7.SelectedIndex = data[0];
-            NUP_TallGrassForme7.Value = data[1];
-            NUP_TallGrassMin7.Value = data[2];
-            NUP_TallGrassMax7.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass8.SelectedIndex = data[0];
-            NUP_TallGrassForme8.Value = data[1];
-            NUP_TallGrassMin8.Value = data[2];
-            NUP_TallGrassMax8.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass9.SelectedIndex = data[0];
-            NUP_TallGrassForme9.Value = data[1];
-            NUP_TallGrassMin9.Value = data[2];
-            NUP_TallGrassMax9.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass10.SelectedIndex = data[0];
-            NUP_TallGrassForme10.Value = data[1];
-            NUP_TallGrassMin10.Value = data[2];
-            NUP_TallGrassMax10.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass11.SelectedIndex = data[0];
-            NUP_TallGrassForme11.Value = data[1];
-            NUP_TallGrassMin11.Value = data[2];
-            NUP_TallGrassMax11.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_TallGrass12.SelectedIndex = data[0];
-            NUP_TallGrassForme12.Value = data[1];
-            NUP_TallGrassMin12.Value = data[2];
-            NUP_TallGrassMax12.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Swarm1.SelectedIndex = data[0];
-            NUP_SwarmForme1.Value = data[1];
-            NUP_SwarmMin1.Value = data[2];
-            NUP_SwarmMax1.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Swarm2.SelectedIndex = data[0];
-            NUP_SwarmForme2.Value = data[1];
-            NUP_SwarmMin2.Value = data[2];
-            NUP_SwarmMax2.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Swarm3.SelectedIndex = data[0];
-            NUP_SwarmForme3.Value = data[1];
-            NUP_SwarmMin3.Value = data[2];
-            NUP_SwarmMax3.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Surf1.SelectedIndex = data[0];
-            NUP_SurfForme1.Value = data[1];
-            NUP_SurfMin1.Value = data[2];
-            NUP_SurfMax1.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Surf2.SelectedIndex = data[0];
-            NUP_SurfForme2.Value = data[1];
-            NUP_SurfMin2.Value = data[2];
-            NUP_SurfMax2.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Surf3.SelectedIndex = data[0];
-            NUP_SurfForme3.Value = data[1];
-            NUP_SurfMin3.Value = data[2];
-            NUP_SurfMax3.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Surf4.SelectedIndex = data[0];
-            NUP_SurfForme4.Value = data[1];
-            NUP_SurfMin4.Value = data[2];
-            NUP_SurfMax4.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Surf5.SelectedIndex = data[0];
-            NUP_SurfForme5.Value = data[1];
-            NUP_SurfMin5.Value = data[2];
-            NUP_SurfMax5.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_RockSmash1.SelectedIndex = data[0];
-            NUP_RockSmashForme1.Value = data[1];
-            NUP_RockSmashMin1.Value = data[2];
-            NUP_RockSmashMax1.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_RockSmash2.SelectedIndex = data[0];
-            NUP_RockSmashForme2.Value = data[1];
-            NUP_RockSmashMin2.Value = data[2];
-            NUP_RockSmashMax2.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_RockSmash3.SelectedIndex = data[0];
-            NUP_RockSmashForme3.Value = data[1];
-            NUP_RockSmashMin3.Value = data[2];
-            NUP_RockSmashMax3.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_RockSmash4.SelectedIndex = data[0];
-            NUP_RockSmashForme4.Value = data[1];
-            NUP_RockSmashMin4.Value = data[2];
-            NUP_RockSmashMax4.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_RockSmash5.SelectedIndex = data[0];
-            NUP_RockSmashForme5.Value = data[1];
-            NUP_RockSmashMin5.Value = data[2];
-            NUP_RockSmashMax5.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Old1.SelectedIndex = data[0];
-            NUP_OldForme1.Value = data[1];
-            NUP_OldMin1.Value = data[2];
-            NUP_OldMax1.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Old2.SelectedIndex = data[0];
-            NUP_OldForme2.Value = data[1];
-            NUP_OldMin2.Value = data[2];
-            NUP_OldMax2.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Old3.SelectedIndex = data[0];
-            NUP_OldForme3.Value = data[1];
-            NUP_OldMin3.Value = data[2];
-            NUP_OldMax3.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Good1.SelectedIndex = data[0];
-            NUP_GoodForme1.Value = data[1];
-            NUP_GoodMin1.Value = data[2];
-            NUP_GoodMax1.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Good2.SelectedIndex = data[0];
-            NUP_GoodForme2.Value = data[1];
-            NUP_GoodMin2.Value = data[2];
-            NUP_GoodMax2.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Good3.SelectedIndex = data[0];
-            NUP_GoodForme3.Value = data[1];
-            NUP_GoodMin3.Value = data[2];
-            NUP_GoodMax3.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Super1.SelectedIndex = data[0];
-            NUP_SuperForme1.Value = data[1];
-            NUP_SuperMin1.Value = data[2];
-            NUP_SuperMax1.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Super2.SelectedIndex = data[0];
-            NUP_SuperForme2.Value = data[1];
-            NUP_SuperMin2.Value = data[2];
-            NUP_SuperMax2.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_Super3.SelectedIndex = data[0];
-            NUP_SuperForme3.Value = data[1];
-            NUP_SuperMin3.Value = data[2];
-            NUP_SuperMax3.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeA1.SelectedIndex = data[0];
-            NUP_HordeAForme1.Value = data[1];
-            NUP_HordeAMin1.Value = data[2];
-            NUP_HordeAMax1.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeA2.SelectedIndex = data[0];
-            NUP_HordeAForme2.Value = data[1];
-            NUP_HordeAMin2.Value = data[2];
-            NUP_HordeAMax2.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeA3.SelectedIndex = data[0];
-            NUP_HordeAForme3.Value = data[1];
-            NUP_HordeAMin3.Value = data[2];
-            NUP_HordeAMax3.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeA4.SelectedIndex = data[0];
-            NUP_HordeAForme4.Value = data[1];
-            NUP_HordeAMin4.Value = data[2];
-            NUP_HordeAMax4.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeA5.SelectedIndex = data[0];
-            NUP_HordeAForme5.Value = data[1];
-            NUP_HordeAMin5.Value = data[2];
-            NUP_HordeAMax5.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeB1.SelectedIndex = data[0];
-            NUP_HordeBForme1.Value = data[1];
-            NUP_HordeBMin1.Value = data[2];
-            NUP_HordeBMax1.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeB2.SelectedIndex = data[0];
-            NUP_HordeBForme2.Value = data[1];
-            NUP_HordeBMin2.Value = data[2];
-            NUP_HordeBMax2.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeB3.SelectedIndex = data[0];
-            NUP_HordeBForme3.Value = data[1];
-            NUP_HordeBMin3.Value = data[2];
-            NUP_HordeBMax3.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeB4.SelectedIndex = data[0];
-            NUP_HordeBForme4.Value = data[1];
-            NUP_HordeBMin4.Value = data[2];
-            NUP_HordeBMax4.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeB5.SelectedIndex = data[0];
-            NUP_HordeBForme5.Value = data[1];
-            NUP_HordeBMin5.Value = data[2];
-            NUP_HordeBMax5.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeC1.SelectedIndex = data[0];
-            NUP_HordeCForme1.Value = data[1];
-            NUP_HordeCMin1.Value = data[2];
-            NUP_HordeCMax1.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeC2.SelectedIndex = data[0];
-            NUP_HordeCForme2.Value = data[1];
-            NUP_HordeCMin2.Value = data[2];
-            NUP_HordeCMax2.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeC3.SelectedIndex = data[0];
-            NUP_HordeCForme3.Value = data[1];
-            NUP_HordeCMin3.Value = data[2];
-            NUP_HordeCMax3.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeC4.SelectedIndex = data[0];
-            NUP_HordeCForme4.Value = data[1];
-            NUP_HordeCMin4.Value = data[2];
-            NUP_HordeCMax4.Value = data[3];
-            offset += 4;
-            Array.Copy(ed, offset, slot, 0, 4);
-            data = pslot(slot);
-            CB_HordeC5.SelectedIndex = data[0];
-            NUP_HordeCForme5.Value = data[1];
-            NUP_HordeCMin5.Value = data[2];
-            NUP_HordeCMax5.Value = data[3];
-            offset += 4;
-#endregion
+
+            // read data into form
+            for (int i = 0; i < max.Length; i++)
+            {
+                // Fetch Data
+                Array.Copy(ed, offset + i * 4, slot, 0, 4);
+                data = pslot(slot);
+
+                // Load Data
+                spec[i].SelectedIndex = data[0];
+                form[i].Value = data[1];
+                min[i].Value = data[2];
+                max[i].Value = data[3];
+            }
         }
 
-        private int[] pslot(byte[] slot)
+        private int[] pslot(byte[] slot) // Parse Slot to Bytes
         {
             int index = BitConverter.ToUInt16(slot, 0) & 0x7FF;
             int form = BitConverter.ToUInt16(slot, 0) >> 11;
@@ -1213,7 +852,6 @@ namespace RSWE
             data[3] = max;
             return data;
         }
-
         private string parseslot(byte[] slot)
         {
             int index = BitConverter.ToUInt16(slot, 0) & 0x7FF;
@@ -1222,11 +860,9 @@ namespace RSWE
             int min = slot[2];
             int max = slot[3];
             string species = specieslist[index];
-            if (form > 0) species += "-"+form.ToString();
+            if (form > 0) species += "-" + form.ToString();
             return species + ',' + min + ',' + max + ',';
         }
-
-
 
         private void CB_LocationID_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1253,253 +889,14 @@ namespace RSWE
 
         private void ClearData()
         {
-            #region Clear Data
-            CB_Grass1.SelectedIndex = 0;
-            NUP_GrassForme1.Value = 0;
-            NUP_GrassMin1.Value = 0;
-            NUP_GrassMax1.Value = 0;
-            CB_Grass2.SelectedIndex = 0;
-            NUP_GrassForme2.Value = 0;
-            NUP_GrassMin2.Value = 0;
-            NUP_GrassMax2.Value = 0;
-            CB_Grass3.SelectedIndex = 0;
-            NUP_GrassForme3.Value = 0;
-            NUP_GrassMin3.Value = 0;
-            NUP_GrassMax3.Value = 0;
-            CB_Grass4.SelectedIndex = 0;
-            NUP_GrassForme4.Value = 0;
-            NUP_GrassMin4.Value = 0;
-            NUP_GrassMax4.Value = 0;
-            CB_Grass5.SelectedIndex = 0;
-            NUP_GrassForme5.Value = 0;
-            NUP_GrassMin5.Value = 0;
-            NUP_GrassMax5.Value = 0;
-            CB_Grass6.SelectedIndex = 0;
-            NUP_GrassForme6.Value = 0;
-            NUP_GrassMin6.Value = 0;
-            NUP_GrassMax6.Value = 0;
-            CB_Grass7.SelectedIndex = 0;
-            NUP_GrassForme7.Value = 0;
-            NUP_GrassMin7.Value = 0;
-            NUP_GrassMax7.Value = 0;
-            CB_Grass8.SelectedIndex = 0;
-            NUP_GrassForme8.Value = 0;
-            NUP_GrassMin8.Value = 0;
-            NUP_GrassMax8.Value = 0;
-            CB_Grass9.SelectedIndex = 0;
-            NUP_GrassForme9.Value = 0;
-            NUP_GrassMin9.Value = 0;
-            NUP_GrassMax9.Value = 0;
-            CB_Grass10.SelectedIndex = 0;
-            NUP_GrassForme10.Value = 0;
-            NUP_GrassMin10.Value = 0;
-            NUP_GrassMax10.Value = 0;
-            CB_Grass11.SelectedIndex = 0;
-            NUP_GrassForme11.Value = 0;
-            NUP_GrassMin11.Value = 0;
-            NUP_GrassMax11.Value = 0;
-            CB_Grass12.SelectedIndex = 0;
-            NUP_GrassForme12.Value = 0;
-            NUP_GrassMin12.Value = 0;
-            NUP_GrassMax12.Value = 0;
-            CB_TallGrass1.SelectedIndex = 0;
-            NUP_TallGrassForme1.Value = 0;
-            NUP_TallGrassMin1.Value = 0;
-            NUP_TallGrassMax1.Value = 0;
-            CB_TallGrass2.SelectedIndex = 0;
-            NUP_TallGrassForme2.Value = 0;
-            NUP_TallGrassMin2.Value = 0;
-            NUP_TallGrassMax2.Value = 0;
-            CB_TallGrass3.SelectedIndex = 0;
-            NUP_TallGrassForme3.Value = 0;
-            NUP_TallGrassMin3.Value = 0;
-            NUP_TallGrassMax3.Value = 0;
-            CB_TallGrass4.SelectedIndex = 0;
-            NUP_TallGrassForme4.Value = 0;
-            NUP_TallGrassMin4.Value = 0;
-            NUP_TallGrassMax4.Value = 0;
-            CB_TallGrass5.SelectedIndex = 0;
-            NUP_TallGrassForme5.Value = 0;
-            NUP_TallGrassMin5.Value = 0;
-            NUP_TallGrassMax5.Value = 0;
-            CB_TallGrass6.SelectedIndex = 0;
-            NUP_TallGrassForme6.Value = 0;
-            NUP_TallGrassMin6.Value = 0;
-            NUP_TallGrassMax6.Value = 0;
-            CB_TallGrass7.SelectedIndex = 0;
-            NUP_TallGrassForme7.Value = 0;
-            NUP_TallGrassMin7.Value = 0;
-            NUP_TallGrassMax7.Value = 0;
-            CB_TallGrass8.SelectedIndex = 0;
-            NUP_TallGrassForme8.Value = 0;
-            NUP_TallGrassMin8.Value = 0;
-            NUP_TallGrassMax8.Value = 0;
-            CB_TallGrass9.SelectedIndex = 0;
-            NUP_TallGrassForme9.Value = 0;
-            NUP_TallGrassMin9.Value = 0;
-            NUP_TallGrassMax9.Value = 0;
-            CB_TallGrass10.SelectedIndex = 0;
-            NUP_TallGrassForme10.Value = 0;
-            NUP_TallGrassMin10.Value = 0;
-            NUP_TallGrassMax10.Value = 0;
-            CB_TallGrass11.SelectedIndex = 0;
-            NUP_TallGrassForme11.Value = 0;
-            NUP_TallGrassMin11.Value = 0;
-            NUP_TallGrassMax11.Value = 0;
-            CB_TallGrass12.SelectedIndex = 0;
-            NUP_TallGrassForme12.Value = 0;
-            NUP_TallGrassMin12.Value = 0;
-            NUP_TallGrassMax12.Value = 0;
-            CB_Swarm1.SelectedIndex = 0;
-            NUP_SwarmForme1.Value = 0;
-            NUP_SwarmMin1.Value = 0;
-            NUP_SwarmMax1.Value = 0;
-            CB_Swarm2.SelectedIndex = 0;
-            NUP_SwarmForme2.Value = 0;
-            NUP_SwarmMin2.Value = 0;
-            NUP_SwarmMax2.Value = 0;
-            CB_Swarm3.SelectedIndex = 0;
-            NUP_SwarmForme3.Value = 0;
-            NUP_SwarmMin3.Value = 0;
-            NUP_SwarmMax3.Value = 0;
-            CB_Surf1.SelectedIndex = 0;
-            NUP_SurfForme1.Value = 0;
-            NUP_SurfMin1.Value = 0;
-            NUP_SurfMax1.Value = 0;
-            CB_Surf2.SelectedIndex = 0;
-            NUP_SurfForme2.Value = 0;
-            NUP_SurfMin2.Value = 0;
-            NUP_SurfMax2.Value = 0;
-            CB_Surf3.SelectedIndex = 0;
-            NUP_SurfForme3.Value = 0;
-            NUP_SurfMin3.Value = 0;
-            NUP_SurfMax3.Value = 0;
-            CB_Surf4.SelectedIndex = 0;
-            NUP_SurfForme4.Value = 0;
-            NUP_SurfMin4.Value = 0;
-            NUP_SurfMax4.Value = 0;
-            CB_Surf5.SelectedIndex = 0;
-            NUP_SurfForme5.Value = 0;
-            NUP_SurfMin5.Value = 0;
-            NUP_SurfMax5.Value = 0;
-            CB_RockSmash1.SelectedIndex = 0;
-            NUP_RockSmashForme1.Value = 0;
-            NUP_RockSmashMin1.Value = 0;
-            NUP_RockSmashMax1.Value = 0;
-            CB_RockSmash2.SelectedIndex = 0;
-            NUP_RockSmashForme2.Value = 0;
-            NUP_RockSmashMin2.Value = 0;
-            NUP_RockSmashMax2.Value = 0;
-            CB_RockSmash3.SelectedIndex = 0;
-            NUP_RockSmashForme3.Value = 0;
-            NUP_RockSmashMin3.Value = 0;
-            NUP_RockSmashMax3.Value = 0;
-            CB_RockSmash4.SelectedIndex = 0;
-            NUP_RockSmashForme4.Value = 0;
-            NUP_RockSmashMin4.Value = 0;
-            NUP_RockSmashMax4.Value = 0;
-            CB_RockSmash5.SelectedIndex = 0;
-            NUP_RockSmashForme5.Value = 0;
-            NUP_RockSmashMin5.Value = 0;
-            NUP_RockSmashMax5.Value = 0;
-            CB_Old1.SelectedIndex = 0;
-            NUP_OldForme1.Value = 0;
-            NUP_OldMin1.Value = 0;
-            NUP_OldMax1.Value = 0;
-            CB_Old2.SelectedIndex = 0;
-            NUP_OldForme2.Value = 0;
-            NUP_OldMin2.Value = 0;
-            NUP_OldMax2.Value = 0;
-            CB_Old3.SelectedIndex = 0;
-            NUP_OldForme3.Value = 0;
-            NUP_OldMin3.Value = 0;
-            NUP_OldMax3.Value = 0;
-            CB_Good1.SelectedIndex = 0;
-            NUP_GoodForme1.Value = 0;
-            NUP_GoodMin1.Value = 0;
-            NUP_GoodMax1.Value = 0;
-            CB_Good2.SelectedIndex = 0;
-            NUP_GoodForme2.Value = 0;
-            NUP_GoodMin2.Value = 0;
-            NUP_GoodMax2.Value = 0;
-            CB_Good3.SelectedIndex = 0;
-            NUP_GoodForme3.Value = 0;
-            NUP_GoodMin3.Value = 0;
-            NUP_GoodMax3.Value = 0;
-            CB_Super1.SelectedIndex = 0;
-            NUP_SuperForme1.Value = 0;
-            NUP_SuperMin1.Value = 0;
-            NUP_SuperMax1.Value = 0;
-            CB_Super2.SelectedIndex = 0;
-            NUP_SuperForme2.Value = 0;
-            NUP_SuperMin2.Value = 0;
-            NUP_SuperMax2.Value = 0;
-            CB_Super3.SelectedIndex = 0;
-            NUP_SuperForme3.Value = 0;
-            NUP_SuperMin3.Value = 0;
-            NUP_SuperMax3.Value = 0;
-            CB_HordeA1.SelectedIndex = 0;
-            NUP_HordeAForme1.Value = 0;
-            NUP_HordeAMin1.Value = 0;
-            NUP_HordeAMax1.Value = 0;
-            CB_HordeA2.SelectedIndex = 0;
-            NUP_HordeAForme2.Value = 0;
-            NUP_HordeAMin2.Value = 0;
-            NUP_HordeAMax2.Value = 0;
-            CB_HordeA3.SelectedIndex = 0;
-            NUP_HordeAForme3.Value = 0;
-            NUP_HordeAMin3.Value = 0;
-            NUP_HordeAMax3.Value = 0;
-            CB_HordeA4.SelectedIndex = 0;
-            NUP_HordeAForme4.Value = 0;
-            NUP_HordeAMin4.Value = 0;
-            NUP_HordeAMax4.Value = 0;
-            CB_HordeA5.SelectedIndex = 0;
-            NUP_HordeAForme5.Value = 0;
-            NUP_HordeAMin5.Value = 0;
-            NUP_HordeAMax5.Value = 0;
-            CB_HordeB1.SelectedIndex = 0;
-            NUP_HordeBForme1.Value = 0;
-            NUP_HordeBMin1.Value = 0;
-            NUP_HordeBMax1.Value = 0;
-            CB_HordeB2.SelectedIndex = 0;
-            NUP_HordeBForme2.Value = 0;
-            NUP_HordeBMin2.Value = 0;
-            NUP_HordeBMax2.Value = 0;
-            CB_HordeB3.SelectedIndex = 0;
-            NUP_HordeBForme3.Value = 0;
-            NUP_HordeBMin3.Value = 0;
-            NUP_HordeBMax3.Value = 0;
-            CB_HordeB4.SelectedIndex = 0;
-            NUP_HordeBForme4.Value = 0;
-            NUP_HordeBMin4.Value = 0;
-            NUP_HordeBMax4.Value = 0;
-            CB_HordeB5.SelectedIndex = 0;
-            NUP_HordeBForme5.Value = 0;
-            NUP_HordeBMin5.Value = 0;
-            NUP_HordeBMax5.Value = 0;
-            CB_HordeC1.SelectedIndex = 0;
-            NUP_HordeCForme1.Value = 0;
-            NUP_HordeCMin1.Value = 0;
-            NUP_HordeCMax1.Value = 0;
-            CB_HordeC2.SelectedIndex = 0;
-            NUP_HordeCForme2.Value = 0;
-            NUP_HordeCMin2.Value = 0;
-            NUP_HordeCMax2.Value = 0;
-            CB_HordeC3.SelectedIndex = 0;
-            NUP_HordeCForme3.Value = 0;
-            NUP_HordeCMin3.Value = 0;
-            NUP_HordeCMax3.Value = 0;
-            CB_HordeC4.SelectedIndex = 0;
-            NUP_HordeCForme4.Value = 0;
-            NUP_HordeCMin4.Value = 0;
-            NUP_HordeCMax4.Value = 0;
-            CB_HordeC5.SelectedIndex = 0;
-            NUP_HordeCForme5.Value = 0;
-            NUP_HordeCMin5.Value = 0;
-            NUP_HordeCMax5.Value = 0;
-
-            #endregion
+            for (int i = 0; i < max.Length; i++)
+            {
+                // Load Data
+                spec[i].SelectedIndex = 0;
+                form[i].Value = 0;
+                min[i].Value = 0;
+                max[i].Value = 0;
+            }
         }
 
         private byte[] MakeSlotData(int species, int form, int min, int max)
@@ -1516,191 +913,11 @@ namespace RSWE
             byte[] ed = new byte[0x102];
             byte[] data;
             int offset = 0x0;
-            #region MakeData
-            data = MakeSlotData(CB_Grass1.SelectedIndex, (int)NUP_GrassForme1.Value, (int)NUP_GrassMin1.Value, (int)NUP_GrassMax1.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Grass2.SelectedIndex, (int)NUP_GrassForme2.Value, (int)NUP_GrassMin2.Value, (int)NUP_GrassMax2.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Grass3.SelectedIndex, (int)NUP_GrassForme3.Value, (int)NUP_GrassMin3.Value, (int)NUP_GrassMax3.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Grass4.SelectedIndex, (int)NUP_GrassForme4.Value, (int)NUP_GrassMin4.Value, (int)NUP_GrassMax4.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Grass5.SelectedIndex, (int)NUP_GrassForme5.Value, (int)NUP_GrassMin5.Value, (int)NUP_GrassMax5.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Grass6.SelectedIndex, (int)NUP_GrassForme6.Value, (int)NUP_GrassMin6.Value, (int)NUP_GrassMax6.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Grass7.SelectedIndex, (int)NUP_GrassForme7.Value, (int)NUP_GrassMin7.Value, (int)NUP_GrassMax7.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Grass8.SelectedIndex, (int)NUP_GrassForme8.Value, (int)NUP_GrassMin8.Value, (int)NUP_GrassMax8.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Grass9.SelectedIndex, (int)NUP_GrassForme9.Value, (int)NUP_GrassMin9.Value, (int)NUP_GrassMax9.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Grass10.SelectedIndex, (int)NUP_GrassForme10.Value, (int)NUP_GrassMin10.Value, (int)NUP_GrassMax10.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Grass11.SelectedIndex, (int)NUP_GrassForme11.Value, (int)NUP_GrassMin11.Value, (int)NUP_GrassMax11.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Grass12.SelectedIndex, (int)NUP_GrassForme12.Value, (int)NUP_GrassMin12.Value, (int)NUP_GrassMax12.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass1.SelectedIndex, (int)NUP_TallGrassForme1.Value, (int)NUP_TallGrassMin1.Value, (int)NUP_TallGrassMax1.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass2.SelectedIndex, (int)NUP_TallGrassForme2.Value, (int)NUP_TallGrassMin2.Value, (int)NUP_TallGrassMax2.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass3.SelectedIndex, (int)NUP_TallGrassForme3.Value, (int)NUP_TallGrassMin3.Value, (int)NUP_TallGrassMax3.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass4.SelectedIndex, (int)NUP_TallGrassForme4.Value, (int)NUP_TallGrassMin4.Value, (int)NUP_TallGrassMax4.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass5.SelectedIndex, (int)NUP_TallGrassForme5.Value, (int)NUP_TallGrassMin5.Value, (int)NUP_TallGrassMax5.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass6.SelectedIndex, (int)NUP_TallGrassForme6.Value, (int)NUP_TallGrassMin6.Value, (int)NUP_TallGrassMax6.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass7.SelectedIndex, (int)NUP_TallGrassForme7.Value, (int)NUP_TallGrassMin7.Value, (int)NUP_TallGrassMax7.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass8.SelectedIndex, (int)NUP_TallGrassForme8.Value, (int)NUP_TallGrassMin8.Value, (int)NUP_TallGrassMax8.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass9.SelectedIndex, (int)NUP_TallGrassForme9.Value, (int)NUP_TallGrassMin9.Value, (int)NUP_TallGrassMax9.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass10.SelectedIndex, (int)NUP_TallGrassForme10.Value, (int)NUP_TallGrassMin10.Value, (int)NUP_TallGrassMax10.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass11.SelectedIndex, (int)NUP_TallGrassForme11.Value, (int)NUP_TallGrassMin11.Value, (int)NUP_TallGrassMax11.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_TallGrass12.SelectedIndex, (int)NUP_TallGrassForme12.Value, (int)NUP_TallGrassMin12.Value, (int)NUP_TallGrassMax12.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Swarm1.SelectedIndex, (int)NUP_SwarmForme1.Value, (int)NUP_SwarmMin1.Value, (int)NUP_SwarmMax1.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Swarm2.SelectedIndex, (int)NUP_SwarmForme2.Value, (int)NUP_SwarmMin2.Value, (int)NUP_SwarmMax2.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Swarm3.SelectedIndex, (int)NUP_SwarmForme3.Value, (int)NUP_SwarmMin3.Value, (int)NUP_SwarmMax3.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Surf1.SelectedIndex, (int)NUP_SurfForme1.Value, (int)NUP_SurfMin1.Value, (int)NUP_SurfMax1.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Surf2.SelectedIndex, (int)NUP_SurfForme2.Value, (int)NUP_SurfMin2.Value, (int)NUP_SurfMax2.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Surf3.SelectedIndex, (int)NUP_SurfForme3.Value, (int)NUP_SurfMin3.Value, (int)NUP_SurfMax3.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Surf4.SelectedIndex, (int)NUP_SurfForme4.Value, (int)NUP_SurfMin4.Value, (int)NUP_SurfMax4.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Surf5.SelectedIndex, (int)NUP_SurfForme5.Value, (int)NUP_SurfMin5.Value, (int)NUP_SurfMax5.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_RockSmash1.SelectedIndex, (int)NUP_RockSmashForme1.Value, (int)NUP_RockSmashMin1.Value, (int)NUP_RockSmashMax1.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_RockSmash2.SelectedIndex, (int)NUP_RockSmashForme2.Value, (int)NUP_RockSmashMin2.Value, (int)NUP_RockSmashMax2.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_RockSmash3.SelectedIndex, (int)NUP_RockSmashForme3.Value, (int)NUP_RockSmashMin3.Value, (int)NUP_RockSmashMax3.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_RockSmash4.SelectedIndex, (int)NUP_RockSmashForme4.Value, (int)NUP_RockSmashMin4.Value, (int)NUP_RockSmashMax4.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_RockSmash5.SelectedIndex, (int)NUP_RockSmashForme5.Value, (int)NUP_RockSmashMin5.Value, (int)NUP_RockSmashMax5.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Old1.SelectedIndex, (int)NUP_OldForme1.Value, (int)NUP_OldMin1.Value, (int)NUP_OldMax1.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Old2.SelectedIndex, (int)NUP_OldForme2.Value, (int)NUP_OldMin2.Value, (int)NUP_OldMax2.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Old3.SelectedIndex, (int)NUP_OldForme3.Value, (int)NUP_OldMin3.Value, (int)NUP_OldMax3.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Good1.SelectedIndex, (int)NUP_GoodForme1.Value, (int)NUP_GoodMin1.Value, (int)NUP_GoodMax1.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Good2.SelectedIndex, (int)NUP_GoodForme2.Value, (int)NUP_GoodMin2.Value, (int)NUP_GoodMax2.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Good3.SelectedIndex, (int)NUP_GoodForme3.Value, (int)NUP_GoodMin3.Value, (int)NUP_GoodMax3.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Super1.SelectedIndex, (int)NUP_SuperForme1.Value, (int)NUP_SuperMin1.Value, (int)NUP_SuperMax1.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Super2.SelectedIndex, (int)NUP_SuperForme2.Value, (int)NUP_SuperMin2.Value, (int)NUP_SuperMax2.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_Super3.SelectedIndex, (int)NUP_SuperForme3.Value, (int)NUP_SuperMin3.Value, (int)NUP_SuperMax3.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeA1.SelectedIndex, (int)NUP_HordeAForme1.Value, (int)NUP_HordeAMin1.Value, (int)NUP_HordeAMax1.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeA2.SelectedIndex, (int)NUP_HordeAForme2.Value, (int)NUP_HordeAMin2.Value, (int)NUP_HordeAMax2.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeA3.SelectedIndex, (int)NUP_HordeAForme3.Value, (int)NUP_HordeAMin3.Value, (int)NUP_HordeAMax3.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeA4.SelectedIndex, (int)NUP_HordeAForme4.Value, (int)NUP_HordeAMin4.Value, (int)NUP_HordeAMax4.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeA5.SelectedIndex, (int)NUP_HordeAForme5.Value, (int)NUP_HordeAMin5.Value, (int)NUP_HordeAMax5.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeB1.SelectedIndex, (int)NUP_HordeBForme1.Value, (int)NUP_HordeBMin1.Value, (int)NUP_HordeBMax1.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeB2.SelectedIndex, (int)NUP_HordeBForme2.Value, (int)NUP_HordeBMin2.Value, (int)NUP_HordeBMax2.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeB3.SelectedIndex, (int)NUP_HordeBForme3.Value, (int)NUP_HordeBMin3.Value, (int)NUP_HordeBMax3.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeB4.SelectedIndex, (int)NUP_HordeBForme4.Value, (int)NUP_HordeBMin4.Value, (int)NUP_HordeBMax4.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeB5.SelectedIndex, (int)NUP_HordeBForme5.Value, (int)NUP_HordeBMin5.Value, (int)NUP_HordeBMax5.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeC1.SelectedIndex, (int)NUP_HordeCForme1.Value, (int)NUP_HordeCMin1.Value, (int)NUP_HordeCMax1.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeC2.SelectedIndex, (int)NUP_HordeCForme2.Value, (int)NUP_HordeCMin2.Value, (int)NUP_HordeCMax2.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeC3.SelectedIndex, (int)NUP_HordeCForme3.Value, (int)NUP_HordeCMin3.Value, (int)NUP_HordeCMax3.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeC4.SelectedIndex, (int)NUP_HordeCForme4.Value, (int)NUP_HordeCMin4.Value, (int)NUP_HordeCMax4.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            data = MakeSlotData(CB_HordeC5.SelectedIndex, (int)NUP_HordeCForme5.Value, (int)NUP_HordeCMin5.Value, (int)NUP_HordeCMax5.Value);
-            Array.Copy(data, 0, ed, offset, 4);
-            offset += 4;
-            #endregion
+            for (int i = 0; i < max.Length; i++)
+            {
+                data = MakeSlotData(spec[i].SelectedIndex, (int)form[i].Value, (int)min[i].Value, (int)max[i].Value);
+                Array.Copy(data, 0, ed, offset + i * 4, 4);
+            }
             return ed;
         }
 
@@ -1749,7 +966,7 @@ namespace RSWE
                 byte[] newdata = ConcatArrays(preoffset, encdata);
                 File.WriteAllBytes(filepath, newdata);
                 //Also write to 537.EN (decStorage)
-                int ENOfs = BitConverter.ToInt32(decStorage, (f + 1) * 4)+0xE;
+                int ENOfs = BitConverter.ToInt32(decStorage, (f + 1) * 4) + 0xE;
                 encdata = MakeEncounterData();
                 Array.Copy(encdata, 0x0, decStorage, ENOfs, 0xF4); //copy encounter tables to EN 2pack storage
                 File.WriteAllBytes(this.encdatapaths[1], decStorage);
@@ -1777,22 +994,20 @@ namespace RSWE
             toret += "======\r\n";
             if (hasData())
             {
-                toret += "Grass: "+CB_Grass1.Text+"(Level "+NUP_GrassMin1.Text+"),"+CB_Grass2.Text+"(Level "+NUP_GrassMin2.Text+"),"+CB_Grass3.Text+"(Level "+NUP_GrassMin3.Text+"),"+CB_Grass4.Text+"(Level "+NUP_GrassMin4.Text+"),"+CB_Grass5.Text+"(Level "+NUP_GrassMin5.Text+"),"+CB_Grass6.Text+"(Level "+NUP_GrassMin6.Text+"),"+CB_Grass7.Text+"(Level "+NUP_GrassMin7.Text+"),"+CB_Grass8.Text+"(Level "+NUP_GrassMin8.Text+"),"+CB_Grass9.Text+"(Level "+NUP_GrassMin9.Text+"),"+CB_Grass10.Text+"(Level "+NUP_GrassMin10.Text+"),"+CB_Grass11.Text+"(Level "+NUP_GrassMin11.Text+"),"+CB_Grass12.Text+"(Level "+NUP_GrassMin12.Text+")\r\n";
-                toret += "TallGrass: " + CB_TallGrass1.Text + "(Level " + NUP_TallGrassMin1.Text+")," + CB_TallGrass2.Text + "(Level " + NUP_TallGrassMin2.Text+")," + CB_TallGrass3.Text + "(Level " + NUP_TallGrassMin3.Text+")," + CB_TallGrass4.Text + "(Level " + NUP_TallGrassMin4.Text+")," + CB_TallGrass5.Text + "(Level " + NUP_TallGrassMin5.Text+")," + CB_TallGrass6.Text + "(Level " + NUP_TallGrassMin6.Text+")," + CB_TallGrass7.Text + "(Level " + NUP_TallGrassMin7.Text+")," + CB_TallGrass8.Text + "(Level " + NUP_TallGrassMin8.Text+")," + CB_TallGrass9.Text + "(Level " + NUP_TallGrassMin9.Text+")," + CB_TallGrass10.Text + "(Level " + NUP_TallGrassMin10.Text+")," + CB_TallGrass11.Text + "(Level " + NUP_TallGrassMin11.Text+")," + CB_TallGrass12.Text + "(Level " + NUP_TallGrassMin12.Text+")\r\n";
-                toret += "RockSmash: " + CB_RockSmash1.Text + "(Level " + NUP_RockSmashMin1.Text+")," + CB_RockSmash2.Text + "(Level " + NUP_RockSmashMin2.Text+")," + CB_RockSmash3.Text + "(Level " + NUP_RockSmashMin3.Text+")," + CB_RockSmash4.Text + "(Level " + NUP_RockSmashMin4.Text+")," + CB_RockSmash5.Text + "(Level " + NUP_RockSmashMin5.Text+")\r\n";
-                toret += "Swarm: " + CB_Swarm1.Text + "(Level " + NUP_SwarmMin1.Text+")," + CB_Swarm2.Text + "(Level " + NUP_SwarmMin2.Text+")," + CB_Swarm3.Text + "(Level " + NUP_SwarmMin3.Text+")\r\n";
-                toret += "Old: " + CB_Old1.Text + "(Level " + NUP_OldMin1.Text+")," + CB_Old2.Text + "(Level " + NUP_OldMin2.Text+")," + CB_Old3.Text + "(Level " + NUP_OldMin3.Text+")\r\n";
-                toret += "Good: " + CB_Good1.Text + "(Level " + NUP_GoodMin1.Text+")," + CB_Good2.Text + "(Level " + NUP_GoodMin2.Text+")," + CB_Good3.Text + "(Level " + NUP_GoodMin3.Text+")\r\n";
-                toret += "Super: " + CB_Super1.Text + "(Level " + NUP_SuperMin1.Text+")," + CB_Super2.Text + "(Level " + NUP_SuperMin2.Text+")," + CB_Super3.Text + "(Level " + NUP_SuperMin3.Text+")\r\n";
-                toret += "Surf: " + CB_Surf1.Text + "(Level " + NUP_SurfMin1.Text+")," + CB_Surf2.Text + "(Level " + NUP_SurfMin2.Text+")," + CB_Surf3.Text + "(Level " + NUP_SurfMin3.Text+")," + CB_Surf4.Text + "(Level " + NUP_SurfMin4.Text+")," + CB_Surf5.Text + "(Level " + NUP_SurfMin5.Text+")\r\n";
-                toret += "HordeA: " + CB_HordeA1.Text + "(Level " + NUP_HordeAMin1.Text+")," + CB_HordeA2.Text + "(Level " + NUP_HordeAMin2.Text+")," + CB_HordeA3.Text + "(Level " + NUP_HordeAMin3.Text+")," + CB_HordeA4.Text + "(Level " + NUP_HordeAMin4.Text+")," + CB_HordeA5.Text + "(Level " + NUP_HordeAMin5.Text+")\r\n";
-                toret += "HordeB: " + CB_HordeB1.Text + "(Level " + NUP_HordeBMin1.Text+")," + CB_HordeB2.Text + "(Level " + NUP_HordeBMin2.Text+")," + CB_HordeB3.Text + "(Level " + NUP_HordeBMin3.Text+")," + CB_HordeB4.Text + "(Level " + NUP_HordeBMin4.Text+")," + CB_HordeB5.Text + "(Level " + NUP_HordeBMin5.Text+")\r\n";
-                toret += "HordeC: " + CB_HordeC1.Text + "(Level " + NUP_HordeCMin1.Text+")," + CB_HordeC2.Text + "(Level " + NUP_HordeCMin2.Text+")," + CB_HordeC3.Text + "(Level " + NUP_HordeCMin3.Text+")," + CB_HordeC4.Text + "(Level " + NUP_HordeCMin4.Text+")," + CB_HordeC5.Text + "(Level " + NUP_HordeCMin5.Text+")\r\n";
+                toret += "Grass: " + CB_Grass1.Text + "(Level " + NUP_GrassMin1.Text + ")," + CB_Grass2.Text + "(Level " + NUP_GrassMin2.Text + ")," + CB_Grass3.Text + "(Level " + NUP_GrassMin3.Text + ")," + CB_Grass4.Text + "(Level " + NUP_GrassMin4.Text + ")," + CB_Grass5.Text + "(Level " + NUP_GrassMin5.Text + ")," + CB_Grass6.Text + "(Level " + NUP_GrassMin6.Text + ")," + CB_Grass7.Text + "(Level " + NUP_GrassMin7.Text + ")," + CB_Grass8.Text + "(Level " + NUP_GrassMin8.Text + ")," + CB_Grass9.Text + "(Level " + NUP_GrassMin9.Text + ")," + CB_Grass10.Text + "(Level " + NUP_GrassMin10.Text + ")," + CB_Grass11.Text + "(Level " + NUP_GrassMin11.Text + ")," + CB_Grass12.Text + "(Level " + NUP_GrassMin12.Text + ")\r\n";
+                toret += "TallGrass: " + CB_TallGrass1.Text + "(Level " + NUP_TallGrassMin1.Text + ")," + CB_TallGrass2.Text + "(Level " + NUP_TallGrassMin2.Text + ")," + CB_TallGrass3.Text + "(Level " + NUP_TallGrassMin3.Text + ")," + CB_TallGrass4.Text + "(Level " + NUP_TallGrassMin4.Text + ")," + CB_TallGrass5.Text + "(Level " + NUP_TallGrassMin5.Text + ")," + CB_TallGrass6.Text + "(Level " + NUP_TallGrassMin6.Text + ")," + CB_TallGrass7.Text + "(Level " + NUP_TallGrassMin7.Text + ")," + CB_TallGrass8.Text + "(Level " + NUP_TallGrassMin8.Text + ")," + CB_TallGrass9.Text + "(Level " + NUP_TallGrassMin9.Text + ")," + CB_TallGrass10.Text + "(Level " + NUP_TallGrassMin10.Text + ")," + CB_TallGrass11.Text + "(Level " + NUP_TallGrassMin11.Text + ")," + CB_TallGrass12.Text + "(Level " + NUP_TallGrassMin12.Text + ")\r\n";
+                toret += "RockSmash: " + CB_RockSmash1.Text + "(Level " + NUP_RockSmashMin1.Text + ")," + CB_RockSmash2.Text + "(Level " + NUP_RockSmashMin2.Text + ")," + CB_RockSmash3.Text + "(Level " + NUP_RockSmashMin3.Text + ")," + CB_RockSmash4.Text + "(Level " + NUP_RockSmashMin4.Text + ")," + CB_RockSmash5.Text + "(Level " + NUP_RockSmashMin5.Text + ")\r\n";
+                toret += "Swarm: " + CB_Swarm1.Text + "(Level " + NUP_SwarmMin1.Text + ")," + CB_Swarm2.Text + "(Level " + NUP_SwarmMin2.Text + ")," + CB_Swarm3.Text + "(Level " + NUP_SwarmMin3.Text + ")\r\n";
+                toret += "Old: " + CB_Old1.Text + "(Level " + NUP_OldMin1.Text + ")," + CB_Old2.Text + "(Level " + NUP_OldMin2.Text + ")," + CB_Old3.Text + "(Level " + NUP_OldMin3.Text + ")\r\n";
+                toret += "Good: " + CB_Good1.Text + "(Level " + NUP_GoodMin1.Text + ")," + CB_Good2.Text + "(Level " + NUP_GoodMin2.Text + ")," + CB_Good3.Text + "(Level " + NUP_GoodMin3.Text + ")\r\n";
+                toret += "Super: " + CB_Super1.Text + "(Level " + NUP_SuperMin1.Text + ")," + CB_Super2.Text + "(Level " + NUP_SuperMin2.Text + ")," + CB_Super3.Text + "(Level " + NUP_SuperMin3.Text + ")\r\n";
+                toret += "Surf: " + CB_Surf1.Text + "(Level " + NUP_SurfMin1.Text + ")," + CB_Surf2.Text + "(Level " + NUP_SurfMin2.Text + ")," + CB_Surf3.Text + "(Level " + NUP_SurfMin3.Text + ")," + CB_Surf4.Text + "(Level " + NUP_SurfMin4.Text + ")," + CB_Surf5.Text + "(Level " + NUP_SurfMin5.Text + ")\r\n";
+                toret += "HordeA: " + CB_HordeA1.Text + "(Level " + NUP_HordeAMin1.Text + ")," + CB_HordeA2.Text + "(Level " + NUP_HordeAMin2.Text + ")," + CB_HordeA3.Text + "(Level " + NUP_HordeAMin3.Text + ")," + CB_HordeA4.Text + "(Level " + NUP_HordeAMin4.Text + ")," + CB_HordeA5.Text + "(Level " + NUP_HordeAMin5.Text + ")\r\n";
+                toret += "HordeB: " + CB_HordeB1.Text + "(Level " + NUP_HordeBMin1.Text + ")," + CB_HordeB2.Text + "(Level " + NUP_HordeBMin2.Text + ")," + CB_HordeB3.Text + "(Level " + NUP_HordeBMin3.Text + ")," + CB_HordeB4.Text + "(Level " + NUP_HordeBMin4.Text + ")," + CB_HordeB5.Text + "(Level " + NUP_HordeBMin5.Text + ")\r\n";
+                toret += "HordeC: " + CB_HordeC1.Text + "(Level " + NUP_HordeCMin1.Text + ")," + CB_HordeC2.Text + "(Level " + NUP_HordeCMin2.Text + ")," + CB_HordeC3.Text + "(Level " + NUP_HordeCMin3.Text + ")," + CB_HordeC4.Text + "(Level " + NUP_HordeCMin4.Text + ")," + CB_HordeC5.Text + "(Level " + NUP_HordeCMin5.Text + ")\r\n";
             }
             else
-            {
                 toret += "No encounters found.\r\n\r\n";
-            }
             return toret;
         }
 
@@ -1805,8 +1020,14 @@ namespace RSWE
                 string tdata = GetEncDataString();
                 toret += tdata;
             }
-            File.WriteAllText("C:\\encounters.txt", toret);
+            SaveFileDialog savetxt = new SaveFileDialog();
+            savetxt.FileName = "Encounter Slots";
+            savetxt.Filter = "Text File|*.txt";
+            if (savetxt.ShowDialog() == DialogResult.OK)
+            {
+                string path = savetxt.FileName;
+                File.WriteAllText(path, toret);
+            }
         }
-
     }
 }

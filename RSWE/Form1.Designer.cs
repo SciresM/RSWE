@@ -33,7 +33,6 @@
             this.B_Open = new System.Windows.Forms.Button();
             this.B_Save = new System.Windows.Forms.Button();
             this.label134 = new System.Windows.Forms.Label();
-            this.label135 = new System.Windows.Forms.Label();
             this.label136 = new System.Windows.Forms.Label();
             this.CB_FormeList = new System.Windows.Forms.ComboBox();
             this.TabPage_Horde = new System.Windows.Forms.TabPage();
@@ -376,6 +375,7 @@
             this.TabControl_EncounterData = new System.Windows.Forms.TabControl();
             this.B_Dump = new System.Windows.Forms.Button();
             this.B_Randomize = new System.Windows.Forms.Button();
+            this.CHK_Override = new System.Windows.Forms.CheckBox();
             this.TabPage_Horde.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUP_HordeCMax5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUP_HordeCMin5)).BeginInit();
@@ -568,7 +568,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(840, 36);
+            this.label1.Location = new System.Drawing.Point(20, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 1;
@@ -578,7 +578,7 @@
             // 
             this.CB_LocationID.Enabled = false;
             this.CB_LocationID.FormattingEnabled = true;
-            this.CB_LocationID.Location = new System.Drawing.Point(259, 16);
+            this.CB_LocationID.Location = new System.Drawing.Point(240, 14);
             this.CB_LocationID.Name = "CB_LocationID";
             this.CB_LocationID.Size = new System.Drawing.Size(164, 21);
             this.CB_LocationID.TabIndex = 407;
@@ -586,7 +586,7 @@
             // 
             // B_Open
             // 
-            this.B_Open.Location = new System.Drawing.Point(20, 15);
+            this.B_Open.Location = new System.Drawing.Point(20, 13);
             this.B_Open.Name = "B_Open";
             this.B_Open.Size = new System.Drawing.Size(125, 23);
             this.B_Open.TabIndex = 408;
@@ -597,36 +597,27 @@
             // B_Save
             // 
             this.B_Save.Enabled = false;
-            this.B_Save.Location = new System.Drawing.Point(511, 15);
+            this.B_Save.Location = new System.Drawing.Point(410, 13);
             this.B_Save.Name = "B_Save";
-            this.B_Save.Size = new System.Drawing.Size(135, 21);
+            this.B_Save.Size = new System.Drawing.Size(135, 23);
             this.B_Save.TabIndex = 410;
-            this.B_Save.Text = "Save Open Encounters";
+            this.B_Save.Text = "Save Current Encounters";
             this.B_Save.UseVisualStyleBackColor = true;
             this.B_Save.Click += new System.EventHandler(this.B_Save_Click);
             // 
             // label134
             // 
             this.label134.AutoSize = true;
-            this.label134.Location = new System.Drawing.Point(173, 20);
+            this.label134.Location = new System.Drawing.Point(154, 18);
             this.label134.Name = "label134";
             this.label134.Size = new System.Drawing.Size(80, 13);
             this.label134.TabIndex = 411;
             this.label134.Text = "Location ID #s:";
             // 
-            // label135
-            // 
-            this.label135.AutoSize = true;
-            this.label135.Location = new System.Drawing.Point(508, 39);
-            this.label135.Name = "label135";
-            this.label135.Size = new System.Drawing.Size(145, 13);
-            this.label135.TabIndex = 412;
-            this.label135.Text = "(Only saves currently viewed)";
-            // 
             // label136
             // 
             this.label136.AutoSize = true;
-            this.label136.Location = new System.Drawing.Point(666, 12);
+            this.label136.Location = new System.Drawing.Point(759, 18);
             this.label136.Name = "label136";
             this.label136.Size = new System.Drawing.Size(58, 13);
             this.label136.TabIndex = 414;
@@ -636,6 +627,7 @@
             // 
             this.CB_FormeList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.CB_FormeList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CB_FormeList.DropDownWidth = 150;
             this.CB_FormeList.FormattingEnabled = true;
             this.CB_FormeList.Items.AddRange(new object[] {
             "Unown-A - 0",
@@ -765,9 +757,9 @@
             "Genesect-Electric - 2",
             "Genesect-Fire - 3",
             "Genesect-Ice - 4"});
-            this.CB_FormeList.Location = new System.Drawing.Point(730, 9);
+            this.CB_FormeList.Location = new System.Drawing.Point(823, 14);
             this.CB_FormeList.Name = "CB_FormeList";
-            this.CB_FormeList.Size = new System.Drawing.Size(201, 21);
+            this.CB_FormeList.Size = new System.Drawing.Size(108, 21);
             this.CB_FormeList.TabIndex = 413;
             // 
             // TabPage_Horde
@@ -25930,9 +25922,9 @@
             // B_Dump
             // 
             this.B_Dump.Enabled = false;
-            this.B_Dump.Location = new System.Drawing.Point(669, 36);
+            this.B_Dump.Location = new System.Drawing.Point(652, 13);
             this.B_Dump.Name = "B_Dump";
-            this.B_Dump.Size = new System.Drawing.Size(86, 23);
+            this.B_Dump.Size = new System.Drawing.Size(95, 23);
             this.B_Dump.TabIndex = 415;
             this.B_Dump.Text = "Dump Tables";
             this.B_Dump.UseVisualStyleBackColor = true;
@@ -25941,30 +25933,40 @@
             // B_Randomize
             // 
             this.B_Randomize.Enabled = false;
-            this.B_Randomize.Location = new System.Drawing.Point(173, 40);
+            this.B_Randomize.Location = new System.Drawing.Point(551, 13);
             this.B_Randomize.Name = "B_Randomize";
-            this.B_Randomize.Size = new System.Drawing.Size(106, 25);
+            this.B_Randomize.Size = new System.Drawing.Size(95, 23);
             this.B_Randomize.TabIndex = 416;
             this.B_Randomize.Text = "Randomize All";
             this.B_Randomize.UseVisualStyleBackColor = true;
             this.B_Randomize.Click += new System.EventHandler(this.B_Randomize_Click);
+            // 
+            // CHK_Override
+            // 
+            this.CHK_Override.AutoSize = true;
+            this.CHK_Override.Location = new System.Drawing.Point(691, 44);
+            this.CHK_Override.Name = "CHK_Override";
+            this.CHK_Override.Size = new System.Drawing.Size(240, 17);
+            this.CHK_Override.TabIndex = 417;
+            this.CHK_Override.Text = "Allow editing of Locations without Encounters";
+            this.CHK_Override.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(954, 458);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CHK_Override);
             this.Controls.Add(this.B_Randomize);
             this.Controls.Add(this.B_Dump);
             this.Controls.Add(this.label136);
             this.Controls.Add(this.CB_FormeList);
-            this.Controls.Add(this.label135);
             this.Controls.Add(this.label134);
             this.Controls.Add(this.B_Save);
             this.Controls.Add(this.B_Open);
             this.Controls.Add(this.CB_LocationID);
             this.Controls.Add(this.TabControl_EncounterData);
-            this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "RSWE V0.1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -26172,7 +26174,6 @@
         private System.Windows.Forms.Button B_Open;
         private System.Windows.Forms.Button B_Save;
         private System.Windows.Forms.Label label134;
-        private System.Windows.Forms.Label label135;
         private System.Windows.Forms.Label label136;
         private System.Windows.Forms.ComboBox CB_FormeList;
         private System.Windows.Forms.TabPage TabPage_Horde;
@@ -26515,6 +26516,7 @@
         private System.Windows.Forms.TabControl TabControl_EncounterData;
         private System.Windows.Forms.Button B_Dump;
         private System.Windows.Forms.Button B_Randomize;
+        private System.Windows.Forms.CheckBox CHK_Override;
     }
 }
 

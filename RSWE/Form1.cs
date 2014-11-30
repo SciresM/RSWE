@@ -640,6 +640,7 @@ namespace RSWE
             if (length < 0xF6) //no encounters in this map
             {
                 ClearData();
+                br.Close();
                 return;
             }
             br.Close();
@@ -795,10 +796,15 @@ namespace RSWE
                 File.WriteAllBytes(this.encdatapaths[1], decStorage);
             }
         }
+        private int getRandomSlot(int level)
+        {
+            return (int)(rnd32() % 721 + 1);
+        }
         private void B_Randomize_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Randomize all? Cannot undo.", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                this.Enabled = false;
                 for (int i = 0; i < CB_LocationID.Items.Count; i++) // for every location
                 {
                     CB_LocationID.SelectedIndex = i;
@@ -807,12 +813,20 @@ namespace RSWE
                     for (int slot = 0; slot < max.Length; slot++)
                     {
                         if (spec[slot].SelectedIndex != 0)
-                            spec[slot].SelectedIndex = (int)(rnd32() % 721 + 1);
+                        {
+                            int species = getRandomSlot((int)max[i].Value);
+                            spec[slot].SelectedIndex = species;
+
+                            if (species == 666 || species == 665 || species == 664) // Vivillon
+                                form[slot].Value = rnd32() % 20;
+                            else if (species == 386) // Deoxys
+                                form[slot].Value = rnd32() % 4;
+                        }
                         form[slot].Value = 0;
                     }
-
                     B_Save.PerformClick();
                 }
+                this.Enabled = true;
             }
         }
     }

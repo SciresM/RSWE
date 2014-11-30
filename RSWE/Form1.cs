@@ -74,25 +74,7 @@ namespace RSWE
                 NUP_HordeBForme1, NUP_HordeBForme2, NUP_HordeBForme3, NUP_HordeBForme4, NUP_HordeBForme5,
                 NUP_HordeCForme1, NUP_HordeCForme2, NUP_HordeCForme3, NUP_HordeCForme4, NUP_HordeCForme5,
             };
-        }
-        private ComboBox[] spec;
-        private NumericUpDown[] min;
-        private NumericUpDown[] max;
-        private NumericUpDown[] form;
-        string[] specieslist = { };
-        string[] metRS_00000 = { };
-        byte[] zonedata = { };
-        byte[] decStorage = { };
-        string[] LocationNames = { };
-        private string[] encdatapaths;
-        private string[] filepaths;
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            specieslist = getStringList("Species", "en");
-            specieslist[0] = "---";
-            #region Forme List Initialization
-            this.CB_FormeList.Items.AddRange(new string[] {"Unown-A - 0",
+            formlist = new string[] { "Unown-A - 0",
             "Unown-B - 1",
             "Unown-C - 2",
             "Unown-D - 3",
@@ -284,200 +266,39 @@ namespace RSWE
             "",
             "Megas-Normal - 0",
             "Megas-Mega (X) - 1",
-            "Megas-Mega (Y) - 2"
-            });
-            #endregion
-            #region Clear Default Data
-            CB_Grass1.Items.Clear();
-            CB_Grass2.Items.Clear();
-            CB_Grass3.Items.Clear();
-            CB_Grass4.Items.Clear();
-            CB_Grass5.Items.Clear();
-            CB_Grass6.Items.Clear();
-            CB_Grass7.Items.Clear();
-            CB_Grass8.Items.Clear();
-            CB_Grass9.Items.Clear();
-            CB_Grass10.Items.Clear();
-            CB_Grass11.Items.Clear();
-            CB_Grass12.Items.Clear();
-            CB_TallGrass1.Items.Clear();
-            CB_TallGrass2.Items.Clear();
-            CB_TallGrass3.Items.Clear();
-            CB_TallGrass4.Items.Clear();
-            CB_TallGrass5.Items.Clear();
-            CB_TallGrass6.Items.Clear();
-            CB_TallGrass7.Items.Clear();
-            CB_TallGrass8.Items.Clear();
-            CB_TallGrass9.Items.Clear();
-            CB_TallGrass10.Items.Clear();
-            CB_TallGrass11.Items.Clear();
-            CB_TallGrass12.Items.Clear();
-            CB_Swarm1.Items.Clear();
-            CB_Swarm2.Items.Clear();
-            CB_Swarm3.Items.Clear();
-            CB_Surf1.Items.Clear();
-            CB_Surf2.Items.Clear();
-            CB_Surf3.Items.Clear();
-            CB_Surf4.Items.Clear();
-            CB_Surf5.Items.Clear();
-            CB_RockSmash1.Items.Clear();
-            CB_RockSmash2.Items.Clear();
-            CB_RockSmash3.Items.Clear();
-            CB_RockSmash4.Items.Clear();
-            CB_RockSmash5.Items.Clear();
-            CB_Old1.Items.Clear();
-            CB_Old2.Items.Clear();
-            CB_Old3.Items.Clear();
-            CB_Good1.Items.Clear();
-            CB_Good2.Items.Clear();
-            CB_Good3.Items.Clear();
-            CB_Super1.Items.Clear();
-            CB_Super2.Items.Clear();
-            CB_Super3.Items.Clear();
-            CB_HordeA1.Items.Clear();
-            CB_HordeA2.Items.Clear();
-            CB_HordeA3.Items.Clear();
-            CB_HordeA4.Items.Clear();
-            CB_HordeA5.Items.Clear();
-            CB_HordeB1.Items.Clear();
-            CB_HordeB2.Items.Clear();
-            CB_HordeB3.Items.Clear();
-            CB_HordeB4.Items.Clear();
-            CB_HordeB5.Items.Clear();
-            CB_HordeC1.Items.Clear();
-            CB_HordeC2.Items.Clear();
-            CB_HordeC3.Items.Clear();
-            CB_HordeC4.Items.Clear();
-            CB_HordeC5.Items.Clear();
+            "Megas-Mega (Y) - 2",
+            };
+        }
+        private ComboBox[] spec;
+        private NumericUpDown[] min;
+        private NumericUpDown[] max;
+        private NumericUpDown[] form;
+        string[] specieslist = { };
+        string[] formlist = { };
+        string[] metRS_00000 = { };
+        byte[] zonedata = { };
+        byte[] decStorage = { };
+        string[] LocationNames = { };
+        private string[] encdatapaths;
+        private string[] filepaths;
 
-            #endregion
-            #region Add Data to Boxes
-            foreach (string s in specieslist)
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            specieslist = getStringList("Species", "en");
+            specieslist[0] = "---";
+
+            foreach (string s in formlist)
+                CB_FormeList.Items.Add(s);
+
+            // Clear & Reset Data
+            for (int i = 0; i < max.Length; i++)
             {
-                CB_Grass1.Items.Add(s);
-                CB_Swarm1.Items.Add(s);
-                CB_TallGrass1.Items.Add(s);
-                CB_Grass2.Items.Add(s);
-                CB_Swarm2.Items.Add(s);
-                CB_TallGrass2.Items.Add(s);
-                CB_Grass3.Items.Add(s);
-                CB_Swarm3.Items.Add(s);
-                CB_TallGrass3.Items.Add(s);
-                CB_Grass4.Items.Add(s);
-                CB_TallGrass4.Items.Add(s);
-                CB_Grass5.Items.Add(s);
-                CB_TallGrass5.Items.Add(s);
-                CB_Grass6.Items.Add(s);
-                CB_TallGrass6.Items.Add(s);
-                CB_Grass7.Items.Add(s);
-                CB_TallGrass7.Items.Add(s);
-                CB_Grass8.Items.Add(s);
-                CB_TallGrass8.Items.Add(s);
-                CB_Grass9.Items.Add(s);
-                CB_TallGrass9.Items.Add(s);
-                CB_Grass10.Items.Add(s);
-                CB_TallGrass10.Items.Add(s);
-                CB_Grass11.Items.Add(s);
-                CB_TallGrass11.Items.Add(s);
-                CB_Grass12.Items.Add(s);
-                CB_TallGrass12.Items.Add(s);
-                CB_Surf1.Items.Add(s);
-                CB_RockSmash1.Items.Add(s);
-                CB_HordeA1.Items.Add(s);
-                CB_HordeB1.Items.Add(s);
-                CB_HordeC1.Items.Add(s);
-                CB_Surf2.Items.Add(s);
-                CB_RockSmash2.Items.Add(s);
-                CB_HordeA2.Items.Add(s);
-                CB_HordeB2.Items.Add(s);
-                CB_HordeC2.Items.Add(s);
-                CB_Surf3.Items.Add(s);
-                CB_RockSmash3.Items.Add(s);
-                CB_HordeA3.Items.Add(s);
-                CB_HordeB3.Items.Add(s);
-                CB_HordeC3.Items.Add(s);
-                CB_Surf4.Items.Add(s);
-                CB_RockSmash4.Items.Add(s);
-                CB_HordeA4.Items.Add(s);
-                CB_HordeB4.Items.Add(s);
-                CB_HordeC4.Items.Add(s);
-                CB_Surf5.Items.Add(s);
-                CB_RockSmash5.Items.Add(s);
-                CB_HordeA5.Items.Add(s);
-                CB_HordeB5.Items.Add(s);
-                CB_HordeC5.Items.Add(s);
-                CB_Old1.Items.Add(s);
-                CB_Good1.Items.Add(s);
-                CB_Super1.Items.Add(s);
-                CB_Old2.Items.Add(s);
-                CB_Good2.Items.Add(s);
-                CB_Super2.Items.Add(s);
-                CB_Old3.Items.Add(s);
-                CB_Good3.Items.Add(s);
-                CB_Super3.Items.Add(s);
+                spec[i].Items.Clear();
+                foreach (string s in specieslist)
+                    spec[i].Items.Add(s);
+                spec[i].SelectedIndex = 0;
             }
-            CB_Grass1.SelectedIndex = 0;
-            CB_Swarm1.SelectedIndex = 0;
-            CB_TallGrass1.SelectedIndex = 0;
-            CB_Grass2.SelectedIndex = 0;
-            CB_Swarm2.SelectedIndex = 0;
-            CB_TallGrass2.SelectedIndex = 0;
-            CB_Grass3.SelectedIndex = 0;
-            CB_Swarm3.SelectedIndex = 0;
-            CB_TallGrass3.SelectedIndex = 0;
-            CB_Grass4.SelectedIndex = 0;
-            CB_TallGrass4.SelectedIndex = 0;
-            CB_Grass5.SelectedIndex = 0;
-            CB_TallGrass5.SelectedIndex = 0;
-            CB_Grass6.SelectedIndex = 0;
-            CB_TallGrass6.SelectedIndex = 0;
-            CB_Grass7.SelectedIndex = 0;
-            CB_TallGrass7.SelectedIndex = 0;
-            CB_Grass8.SelectedIndex = 0;
-            CB_TallGrass8.SelectedIndex = 0;
-            CB_Grass9.SelectedIndex = 0;
-            CB_TallGrass9.SelectedIndex = 0;
-            CB_Grass10.SelectedIndex = 0;
-            CB_TallGrass10.SelectedIndex = 0;
-            CB_Grass11.SelectedIndex = 0;
-            CB_TallGrass11.SelectedIndex = 0;
-            CB_Grass12.SelectedIndex = 0;
-            CB_TallGrass12.SelectedIndex = 0;
-            CB_Surf1.SelectedIndex = 0;
-            CB_RockSmash1.SelectedIndex = 0;
-            CB_HordeA1.SelectedIndex = 0;
-            CB_HordeB1.SelectedIndex = 0;
-            CB_HordeC1.SelectedIndex = 0;
-            CB_Surf2.SelectedIndex = 0;
-            CB_RockSmash2.SelectedIndex = 0;
-            CB_HordeA2.SelectedIndex = 0;
-            CB_HordeB2.SelectedIndex = 0;
-            CB_HordeC2.SelectedIndex = 0;
-            CB_Surf3.SelectedIndex = 0;
-            CB_RockSmash3.SelectedIndex = 0;
-            CB_HordeA3.SelectedIndex = 0;
-            CB_HordeB3.SelectedIndex = 0;
-            CB_HordeC3.SelectedIndex = 0;
-            CB_Surf4.SelectedIndex = 0;
-            CB_RockSmash4.SelectedIndex = 0;
-            CB_HordeA4.SelectedIndex = 0;
-            CB_HordeB4.SelectedIndex = 0;
-            CB_HordeC4.SelectedIndex = 0;
-            CB_Surf5.SelectedIndex = 0;
-            CB_RockSmash5.SelectedIndex = 0;
-            CB_HordeA5.SelectedIndex = 0;
-            CB_HordeB5.SelectedIndex = 0;
-            CB_HordeC5.SelectedIndex = 0;
-            CB_Old1.SelectedIndex = 0;
-            CB_Good1.SelectedIndex = 0;
-            CB_Super1.SelectedIndex = 0;
-            CB_Old2.SelectedIndex = 0;
-            CB_Good2.SelectedIndex = 0;
-            CB_Super2.SelectedIndex = 0;
-            CB_Old3.SelectedIndex = 0;
-            CB_Good3.SelectedIndex = 0;
-            CB_Super3.SelectedIndex = 0;
-            #endregion
+
             //Preload Tabs
             PreloadTabs();
         }

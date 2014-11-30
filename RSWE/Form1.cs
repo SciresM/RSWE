@@ -16,6 +16,7 @@ namespace RSWE
     {
         public Form1()
         {
+            this.AllowDrop = true;
             InitializeComponent();
             spec = new ComboBox[] 
             {
@@ -498,7 +499,11 @@ namespace RSWE
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
             if (folderBrowserDialog.ShowDialog() != DialogResult.OK)
                 return;
-            this.encdatapaths = Directory.GetFiles(folderBrowserDialog.SelectedPath, "*.*", SearchOption.TopDirectoryOnly);
+            openQuick(folderBrowserDialog.SelectedPath);
+        }
+        private void openQuick(string folder)
+        {
+            encdatapaths = Directory.GetFiles(folder, "*.*", SearchOption.TopDirectoryOnly);
             Array.Sort(encdatapaths);
             this.filepaths = new string[this.encdatapaths.Length - 2];
             Array.Copy(this.encdatapaths, 2, this.filepaths, 0, this.filepaths.Length);
@@ -1028,6 +1033,16 @@ namespace RSWE
                 string path = savetxt.FileName;
                 File.WriteAllText(path, toret);
             }
+        }
+
+        private void dragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            openQuick(files[0]);
+        }
+        private void dragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
         }
     }
 }

@@ -25925,6 +25925,7 @@
             this.TabControl_EncounterData.SelectedIndex = 0;
             this.TabControl_EncounterData.Size = new System.Drawing.Size(926, 395);
             this.TabControl_EncounterData.TabIndex = 2;
+            this.TabControl_EncounterData.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
             // 
             // B_Dump
             // 
@@ -25955,6 +25956,8 @@
             this.Name = "Form1";
             this.Text = "RSWE V0.1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
             this.TabPage_Horde.ResumeLayout(false);
             this.TabPage_Horde.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUP_HordeCMax5)).EndInit();

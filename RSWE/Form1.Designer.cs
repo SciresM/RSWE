@@ -375,6 +375,7 @@
             this.NUP_GrassMax11 = new System.Windows.Forms.NumericUpDown();
             this.TabControl_EncounterData = new System.Windows.Forms.TabControl();
             this.B_Dump = new System.Windows.Forms.Button();
+            this.B_Randomize = new System.Windows.Forms.Button();
             this.TabPage_Horde.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUP_HordeCMax5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUP_HordeCMin5)).BeginInit();
@@ -567,7 +568,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(813, 36);
+            this.label1.Location = new System.Drawing.Point(840, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 1;
@@ -21288,7 +21289,6 @@
             this.TabPage_Land.TabIndex = 0;
             this.TabPage_Land.Text = "Land";
             this.TabPage_Land.UseVisualStyleBackColor = true;
-            this.TabPage_Land.Click += new System.EventHandler(this.TabPage_Land_Click);
             // 
             // CB_Swarm3
             // 
@@ -25929,20 +25929,32 @@
             // 
             // B_Dump
             // 
+            this.B_Dump.Enabled = false;
             this.B_Dump.Location = new System.Drawing.Point(669, 36);
             this.B_Dump.Name = "B_Dump";
-            this.B_Dump.Size = new System.Drawing.Size(125, 23);
+            this.B_Dump.Size = new System.Drawing.Size(86, 23);
             this.B_Dump.TabIndex = 415;
             this.B_Dump.Text = "Dump Tables";
             this.B_Dump.UseVisualStyleBackColor = true;
-            this.B_Dump.Visible = false;
             this.B_Dump.Click += new System.EventHandler(this.B_Dump_Click);
+            // 
+            // B_Randomize
+            // 
+            this.B_Randomize.Enabled = false;
+            this.B_Randomize.Location = new System.Drawing.Point(173, 40);
+            this.B_Randomize.Name = "B_Randomize";
+            this.B_Randomize.Size = new System.Drawing.Size(106, 25);
+            this.B_Randomize.TabIndex = 416;
+            this.B_Randomize.Text = "Randomize All";
+            this.B_Randomize.UseVisualStyleBackColor = true;
+            this.B_Randomize.Click += new System.EventHandler(this.B_Randomize_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(954, 458);
+            this.Controls.Add(this.B_Randomize);
             this.Controls.Add(this.B_Dump);
             this.Controls.Add(this.label136);
             this.Controls.Add(this.CB_FormeList);
@@ -26502,6 +26514,7 @@
         private System.Windows.Forms.NumericUpDown NUP_GrassMax11;
         private System.Windows.Forms.TabControl TabControl_EncounterData;
         private System.Windows.Forms.Button B_Dump;
+        private System.Windows.Forms.Button B_Randomize;
     }
 }
 

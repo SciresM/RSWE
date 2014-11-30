@@ -481,7 +481,11 @@ namespace RSWE
             //Preload Tabs
             PreloadTabs();
         }
-
+        internal static Random rand = new Random();
+        internal static uint rnd32()
+        {
+            return (uint)(rand.Next(1 << 30)) << 2 | (uint)(rand.Next(1 << 2));
+        }
         private string[] getStringList(string f, string l)
         {
             object txt = Properties.Resources.ResourceManager.GetObject("text_" + f + "_" + l); // Fetch File, \n to list.
@@ -541,268 +545,9 @@ namespace RSWE
             }
             CB_LocationID.DataSource = LocationNames;
             B_Open.Enabled = false;
-            B_Save.Enabled = true;
+            B_Save.Enabled = B_Dump.Enabled = B_Randomize.Enabled = true;
             CB_LocationID.Enabled = true;
             CB_LocationID_SelectedIndexChanged(null, null);
-        }
-
-        private bool needsInsertion(int mapID)
-        {
-            if (mapID != 535) // Hardcoded, bad, I know.
-                return (BitConverter.ToUInt32(decStorage, (mapID + 2) * 4) - BitConverter.ToUInt32(decStorage, (mapID + 1) * 4) == 0);
-            else
-                return (BitConverter.ToUInt32(decStorage, (mapID + 1) * 4) == decStorage.Length);
-        }
-
-        private bool hasData()
-        {
-            #region CheckFornon0Vals
-            if (CB_Grass1.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme1.Value > 0) { return true; }
-            if (NUP_GrassMin1.Value > 0) { return true; }
-            if (NUP_GrassMax1.Value > 0) { return true; }
-            if (CB_Grass2.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme2.Value > 0) { return true; }
-            if (NUP_GrassMin2.Value > 0) { return true; }
-            if (NUP_GrassMax2.Value > 0) { return true; }
-            if (CB_Grass3.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme3.Value > 0) { return true; }
-            if (NUP_GrassMin3.Value > 0) { return true; }
-            if (NUP_GrassMax3.Value > 0) { return true; }
-            if (CB_Grass4.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme4.Value > 0) { return true; }
-            if (NUP_GrassMin4.Value > 0) { return true; }
-            if (NUP_GrassMax4.Value > 0) { return true; }
-            if (CB_Grass5.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme5.Value > 0) { return true; }
-            if (NUP_GrassMin5.Value > 0) { return true; }
-            if (NUP_GrassMax5.Value > 0) { return true; }
-            if (CB_Grass6.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme6.Value > 0) { return true; }
-            if (NUP_GrassMin6.Value > 0) { return true; }
-            if (NUP_GrassMax6.Value > 0) { return true; }
-            if (CB_Grass7.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme7.Value > 0) { return true; }
-            if (NUP_GrassMin7.Value > 0) { return true; }
-            if (NUP_GrassMax7.Value > 0) { return true; }
-            if (CB_Grass8.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme8.Value > 0) { return true; }
-            if (NUP_GrassMin8.Value > 0) { return true; }
-            if (NUP_GrassMax8.Value > 0) { return true; }
-            if (CB_Grass9.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme9.Value > 0) { return true; }
-            if (NUP_GrassMin9.Value > 0) { return true; }
-            if (NUP_GrassMax9.Value > 0) { return true; }
-            if (CB_Grass10.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme10.Value > 0) { return true; }
-            if (NUP_GrassMin10.Value > 0) { return true; }
-            if (NUP_GrassMax10.Value > 0) { return true; }
-            if (CB_Grass11.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme11.Value > 0) { return true; }
-            if (NUP_GrassMin11.Value > 0) { return true; }
-            if (NUP_GrassMax11.Value > 0) { return true; }
-            if (CB_Grass12.SelectedIndex > 0) { return true; }
-            if (NUP_GrassForme12.Value > 0) { return true; }
-            if (NUP_GrassMin12.Value > 0) { return true; }
-            if (NUP_GrassMax12.Value > 0) { return true; }
-            if (CB_TallGrass1.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme1.Value > 0) { return true; }
-            if (NUP_TallGrassMin1.Value > 0) { return true; }
-            if (NUP_TallGrassMax1.Value > 0) { return true; }
-            if (CB_TallGrass2.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme2.Value > 0) { return true; }
-            if (NUP_TallGrassMin2.Value > 0) { return true; }
-            if (NUP_TallGrassMax2.Value > 0) { return true; }
-            if (CB_TallGrass3.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme3.Value > 0) { return true; }
-            if (NUP_TallGrassMin3.Value > 0) { return true; }
-            if (NUP_TallGrassMax3.Value > 0) { return true; }
-            if (CB_TallGrass4.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme4.Value > 0) { return true; }
-            if (NUP_TallGrassMin4.Value > 0) { return true; }
-            if (NUP_TallGrassMax4.Value > 0) { return true; }
-            if (CB_TallGrass5.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme5.Value > 0) { return true; }
-            if (NUP_TallGrassMin5.Value > 0) { return true; }
-            if (NUP_TallGrassMax5.Value > 0) { return true; }
-            if (CB_TallGrass6.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme6.Value > 0) { return true; }
-            if (NUP_TallGrassMin6.Value > 0) { return true; }
-            if (NUP_TallGrassMax6.Value > 0) { return true; }
-            if (CB_TallGrass7.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme7.Value > 0) { return true; }
-            if (NUP_TallGrassMin7.Value > 0) { return true; }
-            if (NUP_TallGrassMax7.Value > 0) { return true; }
-            if (CB_TallGrass8.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme8.Value > 0) { return true; }
-            if (NUP_TallGrassMin8.Value > 0) { return true; }
-            if (NUP_TallGrassMax8.Value > 0) { return true; }
-            if (CB_TallGrass9.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme9.Value > 0) { return true; }
-            if (NUP_TallGrassMin9.Value > 0) { return true; }
-            if (NUP_TallGrassMax9.Value > 0) { return true; }
-            if (CB_TallGrass10.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme10.Value > 0) { return true; }
-            if (NUP_TallGrassMin10.Value > 0) { return true; }
-            if (NUP_TallGrassMax10.Value > 0) { return true; }
-            if (CB_TallGrass11.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme11.Value > 0) { return true; }
-            if (NUP_TallGrassMin11.Value > 0) { return true; }
-            if (NUP_TallGrassMax11.Value > 0) { return true; }
-            if (CB_TallGrass12.SelectedIndex > 0) { return true; }
-            if (NUP_TallGrassForme12.Value > 0) { return true; }
-            if (NUP_TallGrassMin12.Value > 0) { return true; }
-            if (NUP_TallGrassMax12.Value > 0) { return true; }
-            if (CB_Swarm1.SelectedIndex > 0) { return true; }
-            if (NUP_SwarmForme1.Value > 0) { return true; }
-            if (NUP_SwarmMin1.Value > 0) { return true; }
-            if (NUP_SwarmMax1.Value > 0) { return true; }
-            if (CB_Swarm2.SelectedIndex > 0) { return true; }
-            if (NUP_SwarmForme2.Value > 0) { return true; }
-            if (NUP_SwarmMin2.Value > 0) { return true; }
-            if (NUP_SwarmMax2.Value > 0) { return true; }
-            if (CB_Swarm3.SelectedIndex > 0) { return true; }
-            if (NUP_SwarmForme3.Value > 0) { return true; }
-            if (NUP_SwarmMin3.Value > 0) { return true; }
-            if (NUP_SwarmMax3.Value > 0) { return true; }
-            if (CB_Surf1.SelectedIndex > 0) { return true; }
-            if (NUP_SurfForme1.Value > 0) { return true; }
-            if (NUP_SurfMin1.Value > 0) { return true; }
-            if (NUP_SurfMax1.Value > 0) { return true; }
-            if (CB_Surf2.SelectedIndex > 0) { return true; }
-            if (NUP_SurfForme2.Value > 0) { return true; }
-            if (NUP_SurfMin2.Value > 0) { return true; }
-            if (NUP_SurfMax2.Value > 0) { return true; }
-            if (CB_Surf3.SelectedIndex > 0) { return true; }
-            if (NUP_SurfForme3.Value > 0) { return true; }
-            if (NUP_SurfMin3.Value > 0) { return true; }
-            if (NUP_SurfMax3.Value > 0) { return true; }
-            if (CB_Surf4.SelectedIndex > 0) { return true; }
-            if (NUP_SurfForme4.Value > 0) { return true; }
-            if (NUP_SurfMin4.Value > 0) { return true; }
-            if (NUP_SurfMax4.Value > 0) { return true; }
-            if (CB_Surf5.SelectedIndex > 0) { return true; }
-            if (NUP_SurfForme5.Value > 0) { return true; }
-            if (NUP_SurfMin5.Value > 0) { return true; }
-            if (NUP_SurfMax5.Value > 0) { return true; }
-            if (CB_RockSmash1.SelectedIndex > 0) { return true; }
-            if (NUP_RockSmashForme1.Value > 0) { return true; }
-            if (NUP_RockSmashMin1.Value > 0) { return true; }
-            if (NUP_RockSmashMax1.Value > 0) { return true; }
-            if (CB_RockSmash2.SelectedIndex > 0) { return true; }
-            if (NUP_RockSmashForme2.Value > 0) { return true; }
-            if (NUP_RockSmashMin2.Value > 0) { return true; }
-            if (NUP_RockSmashMax2.Value > 0) { return true; }
-            if (CB_RockSmash3.SelectedIndex > 0) { return true; }
-            if (NUP_RockSmashForme3.Value > 0) { return true; }
-            if (NUP_RockSmashMin3.Value > 0) { return true; }
-            if (NUP_RockSmashMax3.Value > 0) { return true; }
-            if (CB_RockSmash4.SelectedIndex > 0) { return true; }
-            if (NUP_RockSmashForme4.Value > 0) { return true; }
-            if (NUP_RockSmashMin4.Value > 0) { return true; }
-            if (NUP_RockSmashMax4.Value > 0) { return true; }
-            if (CB_RockSmash5.SelectedIndex > 0) { return true; }
-            if (NUP_RockSmashForme5.Value > 0) { return true; }
-            if (NUP_RockSmashMin5.Value > 0) { return true; }
-            if (NUP_RockSmashMax5.Value > 0) { return true; }
-            if (CB_Old1.SelectedIndex > 0) { return true; }
-            if (NUP_OldForme1.Value > 0) { return true; }
-            if (NUP_OldMin1.Value > 0) { return true; }
-            if (NUP_OldMax1.Value > 0) { return true; }
-            if (CB_Old2.SelectedIndex > 0) { return true; }
-            if (NUP_OldForme2.Value > 0) { return true; }
-            if (NUP_OldMin2.Value > 0) { return true; }
-            if (NUP_OldMax2.Value > 0) { return true; }
-            if (CB_Old3.SelectedIndex > 0) { return true; }
-            if (NUP_OldForme3.Value > 0) { return true; }
-            if (NUP_OldMin3.Value > 0) { return true; }
-            if (NUP_OldMax3.Value > 0) { return true; }
-            if (CB_Good1.SelectedIndex > 0) { return true; }
-            if (NUP_GoodForme1.Value > 0) { return true; }
-            if (NUP_GoodMin1.Value > 0) { return true; }
-            if (NUP_GoodMax1.Value > 0) { return true; }
-            if (CB_Good2.SelectedIndex > 0) { return true; }
-            if (NUP_GoodForme2.Value > 0) { return true; }
-            if (NUP_GoodMin2.Value > 0) { return true; }
-            if (NUP_GoodMax2.Value > 0) { return true; }
-            if (CB_Good3.SelectedIndex > 0) { return true; }
-            if (NUP_GoodForme3.Value > 0) { return true; }
-            if (NUP_GoodMin3.Value > 0) { return true; }
-            if (NUP_GoodMax3.Value > 0) { return true; }
-            if (CB_Super1.SelectedIndex > 0) { return true; }
-            if (NUP_SuperForme1.Value > 0) { return true; }
-            if (NUP_SuperMin1.Value > 0) { return true; }
-            if (NUP_SuperMax1.Value > 0) { return true; }
-            if (CB_Super2.SelectedIndex > 0) { return true; }
-            if (NUP_SuperForme2.Value > 0) { return true; }
-            if (NUP_SuperMin2.Value > 0) { return true; }
-            if (NUP_SuperMax2.Value > 0) { return true; }
-            if (CB_Super3.SelectedIndex > 0) { return true; }
-            if (NUP_SuperForme3.Value > 0) { return true; }
-            if (NUP_SuperMin3.Value > 0) { return true; }
-            if (NUP_SuperMax3.Value > 0) { return true; }
-            if (CB_HordeA1.SelectedIndex > 0) { return true; }
-            if (NUP_HordeAForme1.Value > 0) { return true; }
-            if (NUP_HordeAMin1.Value > 0) { return true; }
-            if (NUP_HordeAMax1.Value > 0) { return true; }
-            if (CB_HordeA2.SelectedIndex > 0) { return true; }
-            if (NUP_HordeAForme2.Value > 0) { return true; }
-            if (NUP_HordeAMin2.Value > 0) { return true; }
-            if (NUP_HordeAMax2.Value > 0) { return true; }
-            if (CB_HordeA3.SelectedIndex > 0) { return true; }
-            if (NUP_HordeAForme3.Value > 0) { return true; }
-            if (NUP_HordeAMin3.Value > 0) { return true; }
-            if (NUP_HordeAMax3.Value > 0) { return true; }
-            if (CB_HordeA4.SelectedIndex > 0) { return true; }
-            if (NUP_HordeAForme4.Value > 0) { return true; }
-            if (NUP_HordeAMin4.Value > 0) { return true; }
-            if (NUP_HordeAMax4.Value > 0) { return true; }
-            if (CB_HordeA5.SelectedIndex > 0) { return true; }
-            if (NUP_HordeAForme5.Value > 0) { return true; }
-            if (NUP_HordeAMin5.Value > 0) { return true; }
-            if (NUP_HordeAMax5.Value > 0) { return true; }
-            if (CB_HordeB1.SelectedIndex > 0) { return true; }
-            if (NUP_HordeBForme1.Value > 0) { return true; }
-            if (NUP_HordeBMin1.Value > 0) { return true; }
-            if (NUP_HordeBMax1.Value > 0) { return true; }
-            if (CB_HordeB2.SelectedIndex > 0) { return true; }
-            if (NUP_HordeBForme2.Value > 0) { return true; }
-            if (NUP_HordeBMin2.Value > 0) { return true; }
-            if (NUP_HordeBMax2.Value > 0) { return true; }
-            if (CB_HordeB3.SelectedIndex > 0) { return true; }
-            if (NUP_HordeBForme3.Value > 0) { return true; }
-            if (NUP_HordeBMin3.Value > 0) { return true; }
-            if (NUP_HordeBMax3.Value > 0) { return true; }
-            if (CB_HordeB4.SelectedIndex > 0) { return true; }
-            if (NUP_HordeBForme4.Value > 0) { return true; }
-            if (NUP_HordeBMin4.Value > 0) { return true; }
-            if (NUP_HordeBMax4.Value > 0) { return true; }
-            if (CB_HordeB5.SelectedIndex > 0) { return true; }
-            if (NUP_HordeBForme5.Value > 0) { return true; }
-            if (NUP_HordeBMin5.Value > 0) { return true; }
-            if (NUP_HordeBMax5.Value > 0) { return true; }
-            if (CB_HordeC1.SelectedIndex > 0) { return true; }
-            if (NUP_HordeCForme1.Value > 0) { return true; }
-            if (NUP_HordeCMin1.Value > 0) { return true; }
-            if (NUP_HordeCMax1.Value > 0) { return true; }
-            if (CB_HordeC2.SelectedIndex > 0) { return true; }
-            if (NUP_HordeCForme2.Value > 0) { return true; }
-            if (NUP_HordeCMin2.Value > 0) { return true; }
-            if (NUP_HordeCMax2.Value > 0) { return true; }
-            if (CB_HordeC3.SelectedIndex > 0) { return true; }
-            if (NUP_HordeCForme3.Value > 0) { return true; }
-            if (NUP_HordeCMin3.Value > 0) { return true; }
-            if (NUP_HordeCMax3.Value > 0) { return true; }
-            if (CB_HordeC4.SelectedIndex > 0) { return true; }
-            if (NUP_HordeCForme4.Value > 0) { return true; }
-            if (NUP_HordeCMin4.Value > 0) { return true; }
-            if (NUP_HordeCMax4.Value > 0) { return true; }
-            if (CB_HordeC5.SelectedIndex > 0) { return true; }
-            if (NUP_HordeCForme5.Value > 0) { return true; }
-            if (NUP_HordeCMin5.Value > 0) { return true; }
-            if (NUP_HordeCMax5.Value > 0) { return true; }
-            #endregion
-            return false;
         }
 
         private void parse(byte[] ed)
@@ -843,7 +588,6 @@ namespace RSWE
                 max[i].Value = data[3];
             }
         }
-
         private int[] pslot(byte[] slot) // Parse Slot to Bytes
         {
             int index = BitConverter.ToUInt16(slot, 0) & 0x7FF;
@@ -867,6 +611,21 @@ namespace RSWE
             string species = specieslist[index];
             if (form > 0) species += "-" + form.ToString();
             return species + ',' + min + ',' + max + ',';
+        }
+        private byte[] MakeSlotData(int species, int form, int min, int max)
+        {
+            byte[] data = new byte[4];
+            Array.Copy(BitConverter.GetBytes(Convert.ToUInt16((Convert.ToUInt16(form) << 11) + Convert.ToUInt16(species))), 0, data, 0, 2);
+            data[2] = (byte)min;
+            data[3] = (byte)max;
+            return data;
+        }
+        private byte[] ConcatArrays(byte[] b1, byte[] b2)
+        {
+            byte[] concat = new byte[b1.Length + b2.Length];
+            Array.Copy(b1, 0, concat, 0, b1.Length);
+            Array.Copy(b2, 0, concat, b1.Length, b2.Length);
+            return concat;
         }
 
         private void CB_LocationID_SelectedIndexChanged(object sender, EventArgs e)
@@ -892,6 +651,32 @@ namespace RSWE
             parse(encounterdata);
         }
 
+        private bool needsInsertion(int mapID)
+        {
+            if (mapID != 535) // Hardcoded, bad, I know.
+                return (BitConverter.ToUInt32(decStorage, (mapID + 2) * 4) - BitConverter.ToUInt32(decStorage, (mapID + 1) * 4) == 0);
+            else
+                return (BitConverter.ToUInt32(decStorage, (mapID + 1) * 4) == decStorage.Length);
+        }
+        private bool hasData()
+        {
+            for (int i = 0; i < max.Length; i++)
+            {
+                if (spec[i].SelectedIndex > 0) { return true; }
+                else if (form[i].Value > 0) { return true; }
+                else if (min[i].Value > 0) { return true; }
+                else if (max[i].Value > 0) { return true; }
+            }
+            return false;
+        }
+        private void PreloadTabs()
+        {
+            for (int i = 0; i < this.TabControl_EncounterData.TabPages.Count; i++)
+            {
+                this.TabControl_EncounterData.TabPages[i].Show();
+            }
+            this.TabControl_EncounterData.TabPages[0].Show();
+        }
         private void ClearData()
         {
             for (int i = 0; i < max.Length; i++)
@@ -903,16 +688,6 @@ namespace RSWE
                 max[i].Value = 0;
             }
         }
-
-        private byte[] MakeSlotData(int species, int form, int min, int max)
-        {
-            byte[] data = new byte[4];
-            Array.Copy(BitConverter.GetBytes(Convert.ToUInt16((Convert.ToUInt16(form) << 11) + Convert.ToUInt16(species))), 0, data, 0, 2);
-            data[2] = (byte)min;
-            data[3] = (byte)max;
-            return data;
-        }
-
         private byte[] MakeEncounterData()
         {
             byte[] ed = new byte[0x102];
@@ -925,15 +700,58 @@ namespace RSWE
             }
             return ed;
         }
-
-        private byte[] ConcatArrays(byte[] b1, byte[] b2)
+        private string GetEncDataString()
         {
-            byte[] concat = new byte[b1.Length + b2.Length];
-            Array.Copy(b1, 0, concat, 0, b1.Length);
-            Array.Copy(b2, 0, concat, b1.Length, b2.Length);
-            return concat;
+            string toret = "======\r\n";
+            toret += "Map " + CB_LocationID.Text + "\r\n";
+            toret += "======\r\n";
+            if (hasData())
+            {
+                toret += "Grass: " + CB_Grass1.Text + "(Level " + NUP_GrassMin1.Text + ")," + CB_Grass2.Text + "(Level " + NUP_GrassMin2.Text + ")," + CB_Grass3.Text + "(Level " + NUP_GrassMin3.Text + ")," + CB_Grass4.Text + "(Level " + NUP_GrassMin4.Text + ")," + CB_Grass5.Text + "(Level " + NUP_GrassMin5.Text + ")," + CB_Grass6.Text + "(Level " + NUP_GrassMin6.Text + ")," + CB_Grass7.Text + "(Level " + NUP_GrassMin7.Text + ")," + CB_Grass8.Text + "(Level " + NUP_GrassMin8.Text + ")," + CB_Grass9.Text + "(Level " + NUP_GrassMin9.Text + ")," + CB_Grass10.Text + "(Level " + NUP_GrassMin10.Text + ")," + CB_Grass11.Text + "(Level " + NUP_GrassMin11.Text + ")," + CB_Grass12.Text + "(Level " + NUP_GrassMin12.Text + ")\r\n";
+                toret += "TallGrass: " + CB_TallGrass1.Text + "(Level " + NUP_TallGrassMin1.Text + ")," + CB_TallGrass2.Text + "(Level " + NUP_TallGrassMin2.Text + ")," + CB_TallGrass3.Text + "(Level " + NUP_TallGrassMin3.Text + ")," + CB_TallGrass4.Text + "(Level " + NUP_TallGrassMin4.Text + ")," + CB_TallGrass5.Text + "(Level " + NUP_TallGrassMin5.Text + ")," + CB_TallGrass6.Text + "(Level " + NUP_TallGrassMin6.Text + ")," + CB_TallGrass7.Text + "(Level " + NUP_TallGrassMin7.Text + ")," + CB_TallGrass8.Text + "(Level " + NUP_TallGrassMin8.Text + ")," + CB_TallGrass9.Text + "(Level " + NUP_TallGrassMin9.Text + ")," + CB_TallGrass10.Text + "(Level " + NUP_TallGrassMin10.Text + ")," + CB_TallGrass11.Text + "(Level " + NUP_TallGrassMin11.Text + ")," + CB_TallGrass12.Text + "(Level " + NUP_TallGrassMin12.Text + ")\r\n";
+                toret += "RockSmash: " + CB_RockSmash1.Text + "(Level " + NUP_RockSmashMin1.Text + ")," + CB_RockSmash2.Text + "(Level " + NUP_RockSmashMin2.Text + ")," + CB_RockSmash3.Text + "(Level " + NUP_RockSmashMin3.Text + ")," + CB_RockSmash4.Text + "(Level " + NUP_RockSmashMin4.Text + ")," + CB_RockSmash5.Text + "(Level " + NUP_RockSmashMin5.Text + ")\r\n";
+                toret += "Swarm: " + CB_Swarm1.Text + "(Level " + NUP_SwarmMin1.Text + ")," + CB_Swarm2.Text + "(Level " + NUP_SwarmMin2.Text + ")," + CB_Swarm3.Text + "(Level " + NUP_SwarmMin3.Text + ")\r\n";
+                toret += "Old: " + CB_Old1.Text + "(Level " + NUP_OldMin1.Text + ")," + CB_Old2.Text + "(Level " + NUP_OldMin2.Text + ")," + CB_Old3.Text + "(Level " + NUP_OldMin3.Text + ")\r\n";
+                toret += "Good: " + CB_Good1.Text + "(Level " + NUP_GoodMin1.Text + ")," + CB_Good2.Text + "(Level " + NUP_GoodMin2.Text + ")," + CB_Good3.Text + "(Level " + NUP_GoodMin3.Text + ")\r\n";
+                toret += "Super: " + CB_Super1.Text + "(Level " + NUP_SuperMin1.Text + ")," + CB_Super2.Text + "(Level " + NUP_SuperMin2.Text + ")," + CB_Super3.Text + "(Level " + NUP_SuperMin3.Text + ")\r\n";
+                toret += "Surf: " + CB_Surf1.Text + "(Level " + NUP_SurfMin1.Text + ")," + CB_Surf2.Text + "(Level " + NUP_SurfMin2.Text + ")," + CB_Surf3.Text + "(Level " + NUP_SurfMin3.Text + ")," + CB_Surf4.Text + "(Level " + NUP_SurfMin4.Text + ")," + CB_Surf5.Text + "(Level " + NUP_SurfMin5.Text + ")\r\n";
+                toret += "HordeA: " + CB_HordeA1.Text + "(Level " + NUP_HordeAMin1.Text + ")," + CB_HordeA2.Text + "(Level " + NUP_HordeAMin2.Text + ")," + CB_HordeA3.Text + "(Level " + NUP_HordeAMin3.Text + ")," + CB_HordeA4.Text + "(Level " + NUP_HordeAMin4.Text + ")," + CB_HordeA5.Text + "(Level " + NUP_HordeAMin5.Text + ")\r\n";
+                toret += "HordeB: " + CB_HordeB1.Text + "(Level " + NUP_HordeBMin1.Text + ")," + CB_HordeB2.Text + "(Level " + NUP_HordeBMin2.Text + ")," + CB_HordeB3.Text + "(Level " + NUP_HordeBMin3.Text + ")," + CB_HordeB4.Text + "(Level " + NUP_HordeBMin4.Text + ")," + CB_HordeB5.Text + "(Level " + NUP_HordeBMin5.Text + ")\r\n";
+                toret += "HordeC: " + CB_HordeC1.Text + "(Level " + NUP_HordeCMin1.Text + ")," + CB_HordeC2.Text + "(Level " + NUP_HordeCMin2.Text + ")," + CB_HordeC3.Text + "(Level " + NUP_HordeCMin3.Text + ")," + CB_HordeC4.Text + "(Level " + NUP_HordeCMin4.Text + ")," + CB_HordeC5.Text + "(Level " + NUP_HordeCMin5.Text + ")\r\n";
+            }
+            else
+                toret += "No encounters found.\r\n\r\n";
+            return toret;
         }
 
+        private void dragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            openQuick(files[0]);
+        }
+        private void dragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
+        }
+
+        private void B_Dump_Click(object sender, EventArgs e)
+        {
+            string toret = "";
+            for (int i = 0; i < 535; i++) //hardcoded map count. Yes, it's bad. No, I don't really care.
+            {
+                CB_LocationID.SelectedIndex = i;
+                string tdata = GetEncDataString();
+                toret += tdata;
+            }
+            SaveFileDialog savetxt = new SaveFileDialog();
+            savetxt.FileName = "Encounter Slots";
+            savetxt.Filter = "Text File|*.txt";
+            if (savetxt.ShowDialog() == DialogResult.OK)
+            {
+                string path = savetxt.FileName;
+                File.WriteAllText(path, toret);
+            }
+        }
         private void B_Save_Click(object sender, EventArgs e)
         {
             int f = CB_LocationID.SelectedIndex;
@@ -977,72 +795,25 @@ namespace RSWE
                 File.WriteAllBytes(this.encdatapaths[1], decStorage);
             }
         }
-
-        private void PreloadTabs()
+        private void B_Randomize_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.TabControl_EncounterData.TabPages.Count; i++)
+            if (MessageBox.Show("Randomize all? Cannot undo.", "Alert", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                this.TabControl_EncounterData.TabPages[i].Show();
+                for (int i = 0; i < CB_LocationID.Items.Count; i++) // for every location
+                {
+                    CB_LocationID.SelectedIndex = i;
+                    if (!hasData()) continue; // Don't randomize if doesn't have data.
+
+                    for (int slot = 0; slot < max.Length; slot++)
+                    {
+                        if (spec[slot].SelectedIndex != 0)
+                            spec[slot].SelectedIndex = (int)(rnd32() % 721 + 1);
+                        form[slot].Value = 0;
+                    }
+
+                    B_Save.PerformClick();
+                }
             }
-            this.TabControl_EncounterData.TabPages[0].Show();
-        }
-
-        private void TabPage_Land_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private string GetEncDataString()
-        {
-            string toret = "======\r\n";
-            toret += "Map " + CB_LocationID.Text + "\r\n";
-            toret += "======\r\n";
-            if (hasData())
-            {
-                toret += "Grass: " + CB_Grass1.Text + "(Level " + NUP_GrassMin1.Text + ")," + CB_Grass2.Text + "(Level " + NUP_GrassMin2.Text + ")," + CB_Grass3.Text + "(Level " + NUP_GrassMin3.Text + ")," + CB_Grass4.Text + "(Level " + NUP_GrassMin4.Text + ")," + CB_Grass5.Text + "(Level " + NUP_GrassMin5.Text + ")," + CB_Grass6.Text + "(Level " + NUP_GrassMin6.Text + ")," + CB_Grass7.Text + "(Level " + NUP_GrassMin7.Text + ")," + CB_Grass8.Text + "(Level " + NUP_GrassMin8.Text + ")," + CB_Grass9.Text + "(Level " + NUP_GrassMin9.Text + ")," + CB_Grass10.Text + "(Level " + NUP_GrassMin10.Text + ")," + CB_Grass11.Text + "(Level " + NUP_GrassMin11.Text + ")," + CB_Grass12.Text + "(Level " + NUP_GrassMin12.Text + ")\r\n";
-                toret += "TallGrass: " + CB_TallGrass1.Text + "(Level " + NUP_TallGrassMin1.Text + ")," + CB_TallGrass2.Text + "(Level " + NUP_TallGrassMin2.Text + ")," + CB_TallGrass3.Text + "(Level " + NUP_TallGrassMin3.Text + ")," + CB_TallGrass4.Text + "(Level " + NUP_TallGrassMin4.Text + ")," + CB_TallGrass5.Text + "(Level " + NUP_TallGrassMin5.Text + ")," + CB_TallGrass6.Text + "(Level " + NUP_TallGrassMin6.Text + ")," + CB_TallGrass7.Text + "(Level " + NUP_TallGrassMin7.Text + ")," + CB_TallGrass8.Text + "(Level " + NUP_TallGrassMin8.Text + ")," + CB_TallGrass9.Text + "(Level " + NUP_TallGrassMin9.Text + ")," + CB_TallGrass10.Text + "(Level " + NUP_TallGrassMin10.Text + ")," + CB_TallGrass11.Text + "(Level " + NUP_TallGrassMin11.Text + ")," + CB_TallGrass12.Text + "(Level " + NUP_TallGrassMin12.Text + ")\r\n";
-                toret += "RockSmash: " + CB_RockSmash1.Text + "(Level " + NUP_RockSmashMin1.Text + ")," + CB_RockSmash2.Text + "(Level " + NUP_RockSmashMin2.Text + ")," + CB_RockSmash3.Text + "(Level " + NUP_RockSmashMin3.Text + ")," + CB_RockSmash4.Text + "(Level " + NUP_RockSmashMin4.Text + ")," + CB_RockSmash5.Text + "(Level " + NUP_RockSmashMin5.Text + ")\r\n";
-                toret += "Swarm: " + CB_Swarm1.Text + "(Level " + NUP_SwarmMin1.Text + ")," + CB_Swarm2.Text + "(Level " + NUP_SwarmMin2.Text + ")," + CB_Swarm3.Text + "(Level " + NUP_SwarmMin3.Text + ")\r\n";
-                toret += "Old: " + CB_Old1.Text + "(Level " + NUP_OldMin1.Text + ")," + CB_Old2.Text + "(Level " + NUP_OldMin2.Text + ")," + CB_Old3.Text + "(Level " + NUP_OldMin3.Text + ")\r\n";
-                toret += "Good: " + CB_Good1.Text + "(Level " + NUP_GoodMin1.Text + ")," + CB_Good2.Text + "(Level " + NUP_GoodMin2.Text + ")," + CB_Good3.Text + "(Level " + NUP_GoodMin3.Text + ")\r\n";
-                toret += "Super: " + CB_Super1.Text + "(Level " + NUP_SuperMin1.Text + ")," + CB_Super2.Text + "(Level " + NUP_SuperMin2.Text + ")," + CB_Super3.Text + "(Level " + NUP_SuperMin3.Text + ")\r\n";
-                toret += "Surf: " + CB_Surf1.Text + "(Level " + NUP_SurfMin1.Text + ")," + CB_Surf2.Text + "(Level " + NUP_SurfMin2.Text + ")," + CB_Surf3.Text + "(Level " + NUP_SurfMin3.Text + ")," + CB_Surf4.Text + "(Level " + NUP_SurfMin4.Text + ")," + CB_Surf5.Text + "(Level " + NUP_SurfMin5.Text + ")\r\n";
-                toret += "HordeA: " + CB_HordeA1.Text + "(Level " + NUP_HordeAMin1.Text + ")," + CB_HordeA2.Text + "(Level " + NUP_HordeAMin2.Text + ")," + CB_HordeA3.Text + "(Level " + NUP_HordeAMin3.Text + ")," + CB_HordeA4.Text + "(Level " + NUP_HordeAMin4.Text + ")," + CB_HordeA5.Text + "(Level " + NUP_HordeAMin5.Text + ")\r\n";
-                toret += "HordeB: " + CB_HordeB1.Text + "(Level " + NUP_HordeBMin1.Text + ")," + CB_HordeB2.Text + "(Level " + NUP_HordeBMin2.Text + ")," + CB_HordeB3.Text + "(Level " + NUP_HordeBMin3.Text + ")," + CB_HordeB4.Text + "(Level " + NUP_HordeBMin4.Text + ")," + CB_HordeB5.Text + "(Level " + NUP_HordeBMin5.Text + ")\r\n";
-                toret += "HordeC: " + CB_HordeC1.Text + "(Level " + NUP_HordeCMin1.Text + ")," + CB_HordeC2.Text + "(Level " + NUP_HordeCMin2.Text + ")," + CB_HordeC3.Text + "(Level " + NUP_HordeCMin3.Text + ")," + CB_HordeC4.Text + "(Level " + NUP_HordeCMin4.Text + ")," + CB_HordeC5.Text + "(Level " + NUP_HordeCMin5.Text + ")\r\n";
-            }
-            else
-                toret += "No encounters found.\r\n\r\n";
-            return toret;
-        }
-
-        private void B_Dump_Click(object sender, EventArgs e)
-        {
-            string toret = "";
-            for (int i = 0; i < 535; i++) //hardcoded map count. Yes, it's bad. No, I don't really care.
-            {
-                CB_LocationID.SelectedIndex = i;
-                string tdata = GetEncDataString();
-                toret += tdata;
-            }
-            SaveFileDialog savetxt = new SaveFileDialog();
-            savetxt.FileName = "Encounter Slots";
-            savetxt.Filter = "Text File|*.txt";
-            if (savetxt.ShowDialog() == DialogResult.OK)
-            {
-                string path = savetxt.FileName;
-                File.WriteAllText(path, toret);
-            }
-        }
-
-        private void dragDrop(object sender, DragEventArgs e)
-        {
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            openQuick(files[0]);
-        }
-        private void dragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
         }
     }
 }

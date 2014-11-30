@@ -635,7 +635,7 @@ namespace RSWE
                     {
                         if (spec[slot].SelectedIndex != 0)
                         {
-                            int species = getRandomSlot((int)max[i].Value);
+                            int species = getRandomSlot((int)max[slot].Value);
                             spec[slot].SelectedIndex = species;
 
                             if (species == 666 || species == 665 || species == 664) // Vivillon
@@ -648,6 +648,7 @@ namespace RSWE
                     B_Save.PerformClick();
                 }
                 this.Enabled = true;
+                MessageBox.Show("Randomized!", "Alert");
             }
         }
     }
